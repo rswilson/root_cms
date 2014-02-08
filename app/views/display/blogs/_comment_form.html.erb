@@ -1,0 +1,19 @@
+<h4>Add your voice...</h4>
+<div id="comment_flash" class="flashable" style="display: none"></div>
+<%= form_for [:display, comment_form.post.blog, comment_form.post, comment_form], :remote => true, :html => { :id => "new_comment_post_#{comment_form.post.id}", :honeypot => true } do |f| %>
+	<%= render :partial => "display/errors/generic", :object => comment_form %>
+	<%= hidden_field :redirect_url, :value => request.path %>
+	<table width="100%">
+	  <tr>
+	    <td valign="top"><%= f.label :name %></td>
+	    <td width="90%"><%= f.text_field :name, :class => "comment_name" %></td>
+	  </tr>
+	  <tr>
+	    <td valign="top"><%= f.label :body %></td>
+	    <td width="90%"><%= f.text_area :body, :class => "comment_body" %></td>
+	  </tr>
+	  <tr>
+	    <td colspan="2" align="right"><%= f.submit "Add Comment" %></td>
+    </tr>
+  </table>
+<% end %>

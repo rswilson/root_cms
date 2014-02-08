@@ -1,0 +1,21 @@
+== form_for [@menu, @menu_item], :html => { :class => 'well' } do |f|
+	fieldset
+		- if @content_for_form_title.nil?
+			legend #{controller.action_name.capitalize} Menu Item
+		- else
+			legend = @content_for_form_title
+		= f.error_messages
+				
+		div.row-fluid
+			div.span6
+				= f.form_element f, :name, :text_field, @menu_item.errors, :style => "span12"		
+				= f.form_element f, :parent_id, :collection_select, @menu_item.errors, {:dropdown => {:objects => MenuItem.where("menu_id = ? and id != ?", @menu, @menu_item.id ||= -1 ).order(:position), :id => :id, :name => :name, :include_blank => true}, :style => "span12"}
+			div.span6
+				= f.form_element f, :link_id, :collection_select, @menu_item.errors, {:dropdown => {:objects => Page.all(:order => "name"), :id => :id, :name => :admin_url, :include_blank => true}, :label_text => "Link to Page", :style => "span12"}
+				= f.form_element f, :override_link, :text_field, @menu_item.errors, {:label_text => "Link to external page", :style => "span12"}
+				/ = f.form_element f, :folder_id, :collection_select, @menu_item.errors, {:dropdown => {:objects => Folder.all(:order => "name"), :id => :id, :name => :name, :include_blank => true}}
+		
+		div class="form-actions"
+			= f.submit "Save Menu Item", :class => 'btn btn-primary'
+			- unless @menu_item.new_record?
+				= link_to 'Cancel', edit_menu_path(@menu), :class => 'btn'

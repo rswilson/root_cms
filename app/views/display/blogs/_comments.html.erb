@@ -1,0 +1,11 @@
+<div class="comments_title <% unless expanded %>slider#comments_body<% end %>">Comments <span class="smaller">(<%= pluralize(post.approved_comments.size, "comment") %> so far)</span></div>
+	<div class="comments_body">
+		<% if post.blog.reverse_comments %>
+			<%= render :partial => '/display/blogs/comment', :collection => post.approved_comments.reverse %>
+		<% else %>
+			<%= render :partial => '/display/blogs/comment', :collection => post.approved_comments %>
+		<% end %>
+	</div>
+<div class="add_comment">
+	<%= render :partial => '/display/blogs/comment_form', :object => post.comments.build %>
+</div>

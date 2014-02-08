@@ -1,0 +1,10 @@
+- title "Edit Gallery"
+= render :partial => '/admin/galleries/partials/form', :locals => {:title => "New Gallery"}
+
+- if @albums.size == 0
+
+	p Get started, make a #{link_to "new album", new_gallery_album_path(@gallery)}
+	
+- else
+	
+	== render :partial => '/admin/albums/partials/index', :locals => {:album => Album.new, :gallery => @gallery, :albums => @albums, :name => "name"}

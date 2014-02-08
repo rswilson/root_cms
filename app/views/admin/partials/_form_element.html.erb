@@ -1,0 +1,65 @@
+<% if type == :text_field %>
+	<div class="control-group <% if errors.include?(name) %>error<% end %>">
+		<%= f.label name, label_text, :class => 'control-label' %>
+		<div class="controls">
+			<%= f.text_field name, :class => "text_field #{style}" %>
+			<!--<% if errors.include?(name) %>
+				<span class="help-inline"><%= errors.messages[name][0] %></span>
+			<% end %>-->
+		</div>
+	</div>
+<% elsif type == :password_field  %>
+	<div class="control-group <% if errors.include?(name) %>error<% end %>">
+		<%= f.label name, label_text, :class => 'control-label' %>
+		<div class="controls">
+			<%= f.password_field name, :class => "#{style}" %>		
+			<!--<% if errors.include?(name) %>
+				<span class="help-inline"><%= errors.messages[name][0] %></span>
+			<% end %>-->
+		</div>
+	</div>
+<% elsif type == :check_box  %>
+	<div class="control-group <% if errors.include?(name) %>error<% end %>">
+		<%= f.label name, label_text, :class => 'control-label' %>
+		<div class="controls">
+			<%= f.check_box name, :class => "#{style}" %>
+			<!--<% if errors.include?(name) %>
+				<span class="help-inline"><%= errors.messages[name][0] %></span>
+			<% end %>-->
+		</div>
+	</div>
+<% elsif type == :text_area  %>
+	<div class="control-group <% if errors.include?(name) %>error<% end %>">
+		<%= f.label name, label_text, :class => 'control-label' %>
+		<div class="controls">
+			<%= f.text_area name, :rows => "#{rows}", :class => "#{style}" %>
+			<!--<% if errors.include?(name) %>
+				<span class="help-inline"><%= errors.messages[name][0] %></span>
+			<% end %>-->
+		</div>
+	</div>
+<% elsif type == :collection_select  %>
+	<div class="control-group <% if errors.include?(name) %>error<% end %>">
+		<%= f.label name, label_text, :class => 'control-label' %>
+		<div class="controls">
+			<%= f.collection_select name, dropdown[:objects], dropdown[:id], dropdown[:name], {:include_blank => dropdown[:include_blank]}, {:class => "#{style}"} %>
+			<!--<% if errors.include?(name) %>
+				<span class="help-inline"><%= errors.messages[name][0] %></span>
+			<% end %>-->
+		</div>
+	</div>
+<% elsif type == :array_select  %>
+		<div class="control-group <% if errors.include?(name) %>error<% end %>">
+			<%= f.label name, label_text, :class => 'control-label' %>
+			<div class="controls">
+				<%= f.select name, dropdown[:objects].map { |value| [ value, value ] }, {:include_blank => dropdown[:include_blank]}, {:class => "#{style}"} %>
+				<!--<% if errors.include?(name) %>
+					<span class="help-inline"><%= errors.messages[name][0] %></span>
+				<% end %>-->
+			</div>
+		</div>	
+<% end %>
+
+
+
+

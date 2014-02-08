@@ -1,0 +1,9 @@
+<div class="field_date_field">
+	<input name="form_submission[form_submission_fields_attributes][<%= i %>][value]" value="<%= submitted_field.value || date_field.default_value %>" type="text" id="form_submission[form_submission_fields_attributes][<%= i %>][value]"  class="date_picker"/>
+</div>
+
+<script>
+	$(function() {
+		$( ".date_picker" ).datepicker({dateFormat: 'dd/mm/yy'});
+	});
+</script>

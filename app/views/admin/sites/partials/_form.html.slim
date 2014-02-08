@@ -1,0 +1,17 @@
+= form_for @site, :html => { :class => 'well' } do |f|
+	= f.error_messages
+	
+	fieldset
+		legend
+			|Site Settings
+
+		div.row-fluid
+			div.span12
+				= f.form_element f, :name, :text_field, @site.errors, :style => "span12"
+				= f.form_element f, :url, :text_field, @site.errors, :style => "span12"
+				= f.form_element f, :global_title, :text_field, @site.errors, :style => "span12"
+				= f.form_element f, :contact_address, :text_field, @site.errors, :style => "span12"
+							
+	div class="form-actions"
+		= f.submit "Update Site Settings", :class => 'btn btn-primary'
+		= link_to 'Cancel', forms_path, :class => 'btn'

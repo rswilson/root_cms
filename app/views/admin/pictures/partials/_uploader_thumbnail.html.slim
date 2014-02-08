@@ -1,0 +1,25 @@
+li class="span3" style="display:inline-block; vertical-align: top; float: left; padding: 0px; margin: 10px"
+	div class="thumbnail"
+		= image_tag picture.image.url(:small), :rel => "image_caption_#{picture.id}", :class => "captify thumbnail", :align => "center"
+		p
+			strong = picture.title
+		span Choose size:
+		select id="picture_#{picture.id}_select"
+			option value="#{picture.image.url(:small)}" Small
+			option value="#{picture.image.url(:medium)}" Medium
+			option value="#{picture.image.url(:large)}" Large
+			option value="#{picture.image.url(:xlarge)}" XL
+			option value="#{picture.image.url(:xxlarge)}" XXL
+			option value="#{picture.image.url(:original)}" Original
+		p
+			a href="#" onclick="selectPicture(#{picture.id})" class="btn btn-primary" Insert
+			= link_to gallery_album_picture_rotate_path(picture.album.gallery, picture.album, picture, :degrees => -90, :redirect_url => request.original_url), :class => "btn" do
+				i class="icon-arrow-left"
+				Rotate
+			= link_to gallery_album_picture_rotate_path(picture.album.gallery, picture.album, picture, :degrees => 90, :redirect_url => request.original_url), :class => "btn", :style => "margin-left: 5px" do
+				i class="icon-arrow-right"
+				Rotate
+			/! = link_to "Edit Picture", edit_gallery_album_picture_path(picture.album.gallery, picture.album, picture), :class => "btn btn-success"
+			= link_to gallery_album_picture_path(picture.album.gallery, picture.album, picture, :redirect_url => request.original_url), :style => "margin-left: 5px", :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-danger' do
+				i class="icon-trash icon-white"
+				Delete

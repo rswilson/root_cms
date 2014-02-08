@@ -1,0 +1,275 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require bootstrap
+ *= require bootstrap-responsive
+ *= require page_tags
+ *= require redmond/jquery-ui-1.8.11.custom
+ *= require codemirror/lib/codemirror
+ *= require nestable
+*/
+
+h2 {
+	font-size: 24px !important;
+}
+
+h3 {
+	display: block;
+	width: 100%;
+	padding: 0;
+	margin: 0px 0px 20px 0px !important;
+	font-size: 21px;
+	line-height: 40px;
+	color: #333333;
+	border: 0;
+	border-bottom: 1px solid #e5e5e5;
+	font-weight: bold;
+}
+
+.field_with_errors { display: inline; }
+
+.top-spacer {margin-top: 40px}
+
+.btn:first-child {
+	margin-right: 10px;
+}
+
+#menu_panel {
+	-webkit-box-shadow:  0px 0px 20px 0px #999999;
+	box-shadow:  0px 0px 20px 0px #999999;
+	padding: 20px;
+	background-color: #FFFFFF;
+}
+
+#content_panel {
+	padding: 20px;
+	-webkit-box-shadow:  0px 0px 20px 0px #999999;
+	box-shadow:  0px 0px 20px 0px #999999;
+	background-color: #FFFFFF;
+	margin-left: 1.5%;
+}
+
+#right_panel_container {
+	margin-left: 1.5%;
+}
+
+#right_panel {
+	padding: 20px;
+	margin-right: 20px;
+	-webkit-box-shadow:  0px 0px 20px 0px #999999;
+	box-shadow:  0px 0px 20px 0px #999999;
+	background-color: #FFFFFF;
+}
+
+.row-fluid [class*="span"] {
+	margin-left: 0px;
+}
+
+body {
+	background-color: #4B7399;
+}
+
+.post_header {
+	border-bottom: 1px solid #e5e5e5;
+	padding: 0px 5px 0px 5px;
+}
+
+.post_info {
+	padding: 0px 5px 0px 5px;
+}
+
+form#add_link, form#add_code {
+	margin: 0px;
+}
+
+.nopadding {
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+
+.insert_form_field {
+	display: inline-block;
+	margin-right: 10px;
+}
+
+form.well div.form-actions {
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+div.well form div.form-actions {
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+.compact {
+	margin-top: 0px !important;
+}
+
+/* Page styles */
+
+ul#page-list ul {
+	margin: 0px 0px 10px 14px !important;
+}
+
+li.folder {
+	margin: 5px 0px 5px 0px;
+	padding: 0px 0px 0px 5px;
+	list-style: none;
+	font-size: 16px;
+}
+
+li.folder a:link, li.folder a:visited, li.folder a:hover, li.folder a:active {
+	text-decoration: none;
+	color: #333333;
+	font-weight: bold;
+	background-image: url(../img/folder_16.png);
+	background-repeat: no-repeat;
+	background-position: 5px 0px;
+	padding-left: 25px;
+}
+
+li.folder a:hover {
+	text-decoration: none;
+	color: #999999;
+	font-weight: bold;
+}
+
+li.page {
+	margin: 5px 0px 5px 0px;
+	padding: 0px 0px 0px 5px;
+	font-size: 16px;
+	list-style: none;
+}
+
+li.page a:link, li.page a:visited, li.page a:hover, li.page a:active {
+	text-decoration: none;
+	color: #0b75b2;
+	font-weight: normal;
+	background-image: url(../img/document_16.png);
+	background-repeat: no-repeat;
+	background-position: 5px 0px;
+	padding-left: 25px;
+}
+
+li.page a:hover {
+	text-decoration: none;
+	color: #4B7399;
+	font-weight: normal;
+}
+
+.comment_time {
+	float: right;
+}
+
+.comment_body {
+	margin: 10px;
+}
+
+.comment {
+	margin: 10px;
+}
+
+.comment_buttons {
+	margin: 10px 0px 10px 0px;
+	float: right;
+}
+
+#buttons {
+	margin: 0 auto;
+	text-align: center;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+.tight {
+	padding-bottom: 0px !important;
+}
+
+
+/* File Manager */
+
+
+ul#directory_listing
+{
+	margin: 0px;
+	padding: 0px;t
+	width: 100%;
+	list-style: none;
+}
+
+ul#directory_listing ul
+{
+	padding: 0px 0px 0px 20px;
+	margin: 0px;
+}
+
+ul#directory_listing li
+{
+	/*padding: 0px 0px 0px 10px;*/
+	margin: 0px;
+	/*height: 20px;
+	line-height: 20px;
+	vertical-align: middle;*/
+	list-style: none;
+	/*background-color: #f3f3f3;*/
+}
+
+ul#directory_listing li.folder
+{
+}
+
+
+ul#directory_listing li a.directory_link, ul#directory_listing li a.file_link
+{
+	color: #333;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+}
+
+ul#directory_listing li a.directory_link:hover, ul#directory_listing li a.file_link:hover, ul#directory_listing li .current
+{
+	color: #666666;
+}
+
+.directory
+{
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	color: #333;
+	font-weight: bold;
+
+	margin: 0px;
+	padding: 0px 5px 5px 25px;
+	background-image: url(../img/folder_16.png);
+	background-repeat: no-repeat;
+	background-position: 5px 10px;
+	list-style: none;
+}
+
+.file_name
+{
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	margin: 0px;
+	padding: 0px 5px 5px 25px;
+	background-image: url(../img/document_16.png);
+	background-repeat: no-repeat;
+	background-position: 5px 10px;
+	list-style: none;
+}
+
+.empty_directory
+{
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	margin: 0px;
+	padding: 0px 5px 5px 25px;
+	list-style: none;
+}

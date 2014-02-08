@@ -1,0 +1,45 @@
+<%= form_for [:display, @form_submission] do |f| %>
+
+  <% if @form_submission.errors.any? %>
+    <div id="error_explanation">
+      <h2>Oops, we spotted <%= pluralize(@form_submission.errors.count, "error") %> on your form.</h2>
+
+      <ul>
+      <% for error in @form_submission.get_errors do %>
+    	  <li><strong><%= error[:field].plain_label %></strong> <%= error[:error_message] %></li>
+    	<% end %>
+      </ul>
+    </div>
+  <% end %>
+
+	<% if @form_submission.form.description %>
+		<p><%= @form_submission.form.description %></p>
+	<% end %>
+
+	<% f.fields_for :form_submission_fields do |builder| %>
+		<%= builder.object.label %>
+		<% if builder.object.field.type == "TextField" %>
+			<p>This is simple!!</p>
+		<% end %>
+
+	<% end %>
+
+
+	<div id="form_submission">
+		<dl>
+		<% i = 0 %>
+		<% for form_submission_field in @form_submission.form_submission_fields %>
+		<dt><label for="form_submission_form_submission_fields_attributes_<%= i %>_value" <% if form_submission_field.errors.any? %> class="fieldWithErrors" <% end %>><%= form_submission_field.label %></label>
+		<input id="form_submission_form_submission_fields_attributes_<%= i %>_name" name="form_submission[form_submission_fields_attributes][<%= i %>][name]" value="<%= form_submission_field.field.name %>" type="hidden"/>
+		<input id="form_submission_form_submission_fields_attributes_<%= i %>_field_id" name="form_submission[form_submission_fields_attributes][<%= i %>][field_id]" value="<%= form_submission_field.field.id %>" type="hidden" /></dt>
+    <dd><%= render :partial => '/display/forms/'+form_submission_field.field.type.to_s.underscore+'.html.erb', :object => form_submission_field.field, :locals => {:i => i, :submitted_field => form_submission_field} %></dd>
+    <% i += 1 %>
+		<% end %>
+		</dl>
+	</div>
+
+	<%= f.hidden_field :form_id %>
+	<%= hidden_field_tag :page_id, @page.id %>
+	<%= hidden_field_tag :referring_url, request.request_uri %>
+	<%= f.submit "Submit Comments" %>
+<% end %>

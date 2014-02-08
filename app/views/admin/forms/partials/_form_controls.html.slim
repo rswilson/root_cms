@@ -1,0 +1,42 @@
+- content_for :sidebar do
+	div.row-fluid
+	
+		div class="well span12 tight"
+			legend Add Fields
+
+			div id="add_field_buttons" class="add_field_buttons"
+				= form_for [@form, @form.fields.new], :remote => true, :html => { :class => "insert_form_field" } do	|f|
+					div
+						= f.hidden_field :type, :value => "TextField"
+						= f.submit 'Text Field', :class => "btn btn-small"
+	
+				= form_for [@form, @form.fields.new], :remote => true, :html => { :class => "insert_form_field" } do	|f|
+					div
+						= f.hidden_field :type, :value => "DropDown"
+						= f.submit 'Drop Down', :class => "btn btn-small"
+	
+				= form_for [@form, @form.fields.new], :remote => true, :html => { :class => "insert_form_field" } do	|f|
+					div
+						= f.hidden_field :type, :value => "CheckBox"
+						= f.submit 'Check Box', :class => "btn btn-small"
+	
+				= form_for [@form, @form.fields.new], :remote => true, :html => { :class => "insert_form_field" } do	|f|
+					div
+						= f.hidden_field :type, :value => "RadioGroup"
+						= f.submit 'Radio Group', :class => "btn btn-small"
+	
+				= form_for [@form, @form.fields.new], :remote => true, :html => { :class => "insert_form_field" } do	|f|
+					div
+						= f.hidden_field :type, :value => "TextArea"
+						= f.submit 'Text Area', :class => "btn btn-small"
+	
+				= form_for [@form, @form.fields.new], :remote => true, :html => { :class => "insert_form_field" } do	|f|
+					div
+						= f.hidden_field :type, :value => "DateField"
+						= f.submit 'Date Field', :class => "btn btn-small"
+				div class="clear"
+					|&nbsp;
+	
+	div.row-fluid
+		div id="field_options" class="well span12"
+			legend Field Properties:

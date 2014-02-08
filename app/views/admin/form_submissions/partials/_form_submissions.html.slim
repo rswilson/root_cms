@@ -1,0 +1,19 @@
+- if submissions.size > 0
+	table class="table table-striped"
+		thead
+			tr
+				th align="left" width="80%" Date Submitted
+				th width="20%" style="text-align: right"
+					span style="margin-right: 20px" Actions
+		tbody
+			- for form_submission in submissions
+				tr
+					td width="80%"
+						= link_to form_submission.created_at.strftime("%d/%m/%Y at %H:%M:%S"), form_form_submission_path(@form, form_submission)
+					td width="20%" style="text-align: right"
+						= link_to "Edit", form_form_submission_path(@form, form_submission), :class => 'btn btn-mini'
+						= link_to "Delete", [@form, form_submission], :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+
+- else
+	p.bg-info
+		| No form submissions

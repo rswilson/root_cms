@@ -1,0 +1,8 @@
+<!--<div class="field_drop_down">
+	Num: <%= drop_down.field_options.count %>-->
+	<select name="drop_down">
+		<% for option in drop_down.field_options do %>
+		<option value="<%= option.value %>" <% if option.value == drop_down.default_value %>selected<% end %>><%= option.value %></option>
+		<% end %>
+	</select>
+<!--</div>-->

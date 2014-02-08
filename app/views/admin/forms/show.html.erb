@@ -1,0 +1,24 @@
+<% title "Form" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @form.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @form.description %>
+</p>
+<p>
+  <strong>Notification Address:</strong>
+  <%= @form.notification_address %>
+</p>
+<p>
+  <strong>Send Notification:</strong>
+  <%= @form.send_notification %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_form_path(@form) %> |
+  <%= link_to "Destroy", @form, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", forms_path %>
+</p>

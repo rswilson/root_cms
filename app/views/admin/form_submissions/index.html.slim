@@ -1,0 +1,21 @@
+- title "Form Submissions"
+
+h2 Form Submissions for "#{@form.name}"
+
+p
+	| This form has a total of strong 
+	strong
+		= @form_submissions.size
+	|  submission(s)
+
+legend
+	| New (Unviewed) Submissions
+	
+== render :partial => '/admin/form_submissions/partials/form_submissions', :locals => {:submissions  => @form_submissions_seen}
+
+legend
+	| Previously Viewed Submissions
+	
+== render :partial => '/admin/form_submissions/partials/form_submissions', :locals => {:submissions  => @form_submissions_unseen}
+	
+	

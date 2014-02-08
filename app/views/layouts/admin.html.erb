@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<%= render :partial => '/admin/partials/header' %>
+	<%= render :partial => "/shared/lightbox" %>
+	<link rel="shortcut icon" href="/favicon.ico" />
+</head>
+<body>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="brand" href="#">
+					Root CMS
+				</a>
+				<%- if logged_in? -%>		
+				<ul class="nav pull-right">
+					<li class="divider-vertical"></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><strong><%= current_user.username %></strong><b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="<%= edit_user_path(current_user) %>">Change Password</a></li>
+							<li class="divider"></li>
+							<li><a href="<%= logout_path %>">Logout</a></li>
+						</ul>
+					</li>
+				</ul>
+				<%- end -%>	
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid top-spacer">
+		<div class="row-fluid">
+			<div class="span2" id="menu_panel">
+				<%= render :partial => '/admin/partials/menu' %>
+			</div>
+			<div class="span10" id="content_panel">
+				<%- flash.each do |name, msg| -%>
+					<div class="alert alert-<%= name %>" id="flash_<%= name %>">
+						<button class="close" data-dismiss="alert" type="button">×</button>
+						<%= msg %>
+					</div>
+				<%- end -%> 
+				<%= yield %>
+			</div>
+		</div>
+	</div>
+	<script>
+		$(function() {
+				set_hidden_elements();
+		});
+	</script>
+</body>
+</html>

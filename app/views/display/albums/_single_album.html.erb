@@ -1,0 +1,9 @@
+<% title album.title %>
+
+<div class="album" id="album_<%= album.id %>">
+	<h1><%= album.title %></h1>
+	<p><%= album.description %></p>
+	<div id="pictures" class="pictures">
+		<%= render :partial => "/display/albums/all_pictures", :locals => {:pictures => album.pictures} %>
+	</div>
+</div>

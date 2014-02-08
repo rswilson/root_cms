@@ -1,0 +1,45 @@
+1|Homepage|<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"\
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\
+\
+<html xmlns="http://www.w3.org/1999/xhtml">\
+\
+<head>\
+\
+<title>Welcome to rswilson.com</title>\
+<link rel=stylesheet href="/site_files/stylesheets/styles.css" type="text/css" media=screen>\
+\
+</head>\
+\
+<body>\
+<div id="wrapper">\
+<div id="page_background">\
+<div id="menu">#MENU1#</div>\
+<div id="bookmark">&nbsp;</div>\
+<div id="site_by">&nbsp;</div>\
+<div id="logo">&nbsp;</div>\
+<div id="homepage_content">#CONTENT#</div>\
+<br class="clear" />\
+<div id="page_footer">\
+<div id="validness"><img src="/site_files/images/valid_css.gif" alt="" /> <img src="/site_files/images/valid_xhtml.gif" alt="" /></div>\
+<div id="footer_links">#MENU1#\
+<div id="copyright">Copyright Robert Wilson 2010</div>\
+</div>\
+<br class="clear" /></div>\
+</div>\
+<div id="background_footer">&nbsp;</div>\
+</div>\
+<script type="text/javascript">\
+\
+  var _gaq = _gaq \|\| [];\
+  _gaq.push(['_setAccount', 'UA-1767493-6']);\
+  _gaq.push(['_trackPageview']);\
+\
+  (function() {\
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;\
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';\
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);\
+  })();\
+\
+</script> \
+</body>\
+</html>||2010-01-27 23:05:50|2011-04-26 16:55:51

@@ -1,0 +1,10 @@
+<% if @field.valid? %>
+$("#field_object_errors_<%= @field.id %> #error_explanation").remove();
+$("#field_object_<%= @field.id %>").html('<%= escape_javascript (render :partial => "/admin/forms/partials/field", :object => @field) %>')
+$("#field_object_<%= @field.id %>").effect("highlight", {}, 3000);
+
+<% else %>
+
+alert("teaaa");
+$("#field_object_errors_<%= @field.id %>").html('<%= escape_javascript (render :partial => "/admin/fields/partials/error") %>')
+<% end %>

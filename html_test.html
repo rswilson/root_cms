@@ -1,0 +1,97 @@
+<!--<div style="float: left; left: 50%; position: relative; margin: 0 auto;">
+  <div style="display:inline;">Test</div><div style="display:inline;">Test2</div>
+</div>-->
+
+
+		<style type="text/css">
+			form{
+				width:500px;
+			}
+			/*form dt{
+				float:left;
+				width:150px;
+				text-align: right;
+			}
+			form dt label {
+				margin: 0.5em;
+			}
+			form dd{
+				margin-bottom:0.5em;
+			}*/
+			dt {
+				padding: 0px;
+				margin: 0px;
+				clear: left;
+				float: left;
+				width: 200px;
+			}
+			dd {
+				margin: 0px;
+				padding: 0px;
+				margin-left: 200px;
+			}
+
+			#test_form {
+				width:500px;
+			}
+
+			ol#test_form {
+				list-style: none;
+				margin: 0px;
+				padding: 0px;
+			}
+
+			ol#test_form li {
+				list-style: none;
+				margin: 0px;
+				padding: 0px;
+			}
+
+			ol#test_form label {
+				padding: 0px;
+				margin: 0px;
+				clear: left;
+				float: left;
+				width: 200px;
+				text-align: right;
+			}
+			ol#test_form input {
+				margin: 0px;
+				padding: 0px;
+				margin-left: 200px;
+				display: block;
+			}
+		</style>
+
+<form>
+<dl>
+	<dt><label for="fullname">Full Name:</label></dt>
+	<dd><input type="text" name="fullname"></dd>
+	<dt><label for="email">Email Address:</label></dt>
+	<dd><input type="text" name="email"></dd>
+	<dt><label for="check_box">CheckBox:</label></dt>
+	<dd><dd>
+		<input type="checkbox" name="check_box" value="Test">Test</input>
+		<input type="checkbox" name="check_box" value="Awesome">Awesome</input>
+		<input type="checkbox" name="check_box" value="Test">Test</input>
+		<input type="checkbox" name="check_box" value="Woo">Woo</input>
+		<input type="checkbox" name="check_box" value="Why didn't that work?">Why didn't that work?</input>
+		<input type="checkbox" name="check_box" value="More">More</input>
+		<input type="checkbox" name="check_box" value="Another">Another</input>
+	</dd></dd>
+</dl>
+</form>
+
+<ol id="test_form">
+	<li><label for="fullname">Full Name:</label><input type="text" name="fullname"><li>
+	<li><label for="email">Email Address:</label><input type="text" name="email"></li>
+	<li><label for="check_box">CheckBox:</label>
+		<input type="checkbox" name="check_box" value="Test">Test</input>
+		<input type="checkbox" name="check_box" value="Awesome">Awesome</input>
+		<input type="checkbox" name="check_box" value="Test">Test</input>
+		<input type="checkbox" name="check_box" value="Woo">Woo</input>
+		<input type="checkbox" name="check_box" value="Why didn't that work?">Why didn't that work?</input>
+		<input type="checkbox" name="check_box" value="More">More</input>
+		<input type="checkbox" name="check_box" value="Another">Another</input>
+	</li>
+<ol>

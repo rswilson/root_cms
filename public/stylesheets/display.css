@@ -1,0 +1,237 @@
+body {
+	font-family: "Lucida Grande", Verdana, Arial;
+	font-size: 14px;
+}
+
+a img {
+	border: none;
+}
+
+.smaller {
+	font-size: 0.75em;
+}
+
+.fieldWithErrors {
+	font-weight: bold;
+	color: red;
+}
+
+#errors {
+  border: none;
+  background: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+#errors #error_explanation {
+  border: 2px solid #CF0000;
+  padding: 0px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  font-size: 14px;
+}
+
+#errors h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 10px;
+  font-size: 12px;
+  margin: 0;
+  background: none;
+  background-color: #c00;
+  color: #fff;
+  text-shadow: none;
+}
+
+#errors p {
+  margin: 8px 10px;
+}
+
+#errors #error_explanation ul {
+	margin: 10px 0px 10px 20px;
+	padding: 0px;
+	background: none;
+	list-style: none;
+	padding: 0px 0px 0px 10px;
+}
+
+#errors #error_explanation ul li {
+	margin: 0px;
+	padding: 0px;
+	background: none;
+	list-style: none;
+	font-size: 12px;
+	list-style: square;
+}
+
+#flash_notice, #flash_error, #flash_alert, #flash_info, .flashable {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+#flash_notice, .flashable {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_error, #flash_alert {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+#flash_info {
+	background-color: #4B7399;
+	border: solid 1px  #A9C1EE;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+#form_submission {
+	width:100%;
+}
+#form_submission dt{
+	padding: 0px;
+	margin: 0px;
+	float:left;
+	width:20%;
+	text-align: right;
+	padding-right: 2%;
+	clear: left;
+	/*margin-top:0.5em;*/
+	margin-bottom:0.5em;
+	/*margin-top:0.5em;*/
+}
+#form_submission dt label {
+	font-weight:bold;
+}
+#form_submission dd{
+	padding: 0px;
+	margin: 0px;
+	/*margin-top:0.5em;*/
+	margin-bottom:0.5em;
+	/*width: 100%;
+	margin-left: 20%;*/
+	float: left;
+	width: 78%;
+}
+
+#form_submission .field_text_field input, #form_submission .field_date_field input {
+	border: 2px solid #cccccc;
+	margin: 0px;
+	padding: 5px;
+	font-family: "Lucida Grande", Verdana, Arial;
+	width: 200px;
+}
+
+#form_submission dt .small{
+color:#666666;
+font-size:11px;
+font-weight:normal;
+padding: 5px;
+}
+
+.field_object {
+	margin: 5px 0px 5px 0px;
+}
+
+#form_submission textarea {
+	width: 60%;
+	height: 120px;
+	border: 2px solid #cccccc;
+	padding: 5px;
+		font-family: "Lucida Grande", Verdana, Arial;
+}
+
+#form_submission .text
+{
+	width: auto;
+}
+
+
+/* POSTS */
+
+.blog .blog_title {
+	font-size: 20px;
+	font-weight: bold;
+	margin: 20px 0px 20px 0px;
+}
+
+.post {
+	margin: 10px 0px 10px 0px;
+	padding: 0px;
+}
+
+.post .post_title {
+	font-size: 16px;
+	text-align: left;
+	font-weight: bold;
+	/*text-decoration: underline*/
+}
+
+.post .post_date {
+	font-size: 12px;
+	float: right;
+	font-style: italic;
+}
+
+.post .post_body {
+	clear: both;
+}
+
+.post .comments {
+	margin: 10px 0px 10px 0px;
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #666;
+	padding: 0px 10px 0px 10px;
+}
+
+.post .comments .comments_title {
+	margin: 10px 0px 10px 0px;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.post .comments .comments_title .add_comment {
+	margin: 10px;
+}
+
+.post .comments .comment .comment {
+	margin: 10px 0px 10px 0px;
+}
+
+.post .comments .comment .comment_name {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.post .comments .comment .comment_time {
+	font-size: 12px;
+	float: right;
+	font-weight: italic;
+}
+
+.post .comments .comment .comment_body {
+	padding: 10px;
+}
+
+.new_comment .comment_name {
+	border: 1px solid #cccccc;
+	margin: 0px;
+	font-family: "Lucida Grande", Verdana, Arial;
+	font-size: 14px;
+}
+
+.new_comment .comment_body {
+	padding: 10px;
+	margin: 0px;
+	width: 95%;
+	height: 120px;
+	border: 1px solid #cccccc;
+	padding: 5px;
+	font-family: "Lucida Grande", Verdana, Arial;
+	font-size: 14px;
+}
+
+.slider {
+	cursor: pointer;
+}

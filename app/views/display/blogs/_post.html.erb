@@ -1,0 +1,16 @@
+<% @full_length = (@full_length.nil? ? false : true) %>
+<% if !@full_length && !post.blog.truncate_posts %>
+  <% @full_length = true %>
+<% end %>
+<div class="post" id="post_<%= post.id %>">
+	<div class="post_title"><%= link_to post.title.html_safe, display_blog_post_path(post.blog, post) %></div>
+	<div class="post_date">Posted <%= time_ago_in_words(post.created_at) %> ago</div>
+	<% if @full_length %>
+	<div class="post_body"><%= post.body.html_safe %></div>
+	<% else %>
+	<div class="post_body"><%= post.body.truncate(500, :separator => ' ').html_safe %> <%= link_to "Read More", display_blog_post_path(post.blog, post) %></div>
+	<% end %>
+	<div class="comments">
+		<%= render :partial => '/display/blogs/comments', :locals => {:post => post, :expanded => @full_length} %>
+	</div>
+</div>

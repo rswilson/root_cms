@@ -1,0 +1,20 @@
+= form_tag({ :controller => "files", :action => "make_folder" }, :multipart => true, :method => :put, :class => "well") do
+
+	fieldset
+		legend
+			|Add new folder?
+			
+		div.row-fluid
+			div.span3
+				div class="control-group"
+					= label_tag "folder_name", "Folder Name:", :class => 'control-label'
+					div class="controls"
+						= text_field_tag 'folder_name'
+			div.span9
+				div class="control-group"
+					= label_tag "path", "Choose Parent Folder:", :class => 'control-label'
+					div class="controls"
+						= select_tag "path", options_for_select(@root_directory.all_directories), :class => "span12"
+
+	div class="form-actions compact"				
+		= submit_tag "Create Folder"

@@ -1,0 +1,47 @@
+<div class="field_fade_top">&nbsp;</div>
+<%= form_for [@field.form, @field.becomes(Field)], :remote => :true do |f| %>
+	<div id="field_object_errors_<%= @field.id %>"><%= f.error_messages %></div>
+	<table cellpadding="5" cellspacing="0" class="edit_model_form">
+		<tr>
+			<th align="left" colspan="4">Field Properties</th>
+		</tr>
+		<tr>
+			<td><%= f.label :name %></td>
+			<td><%= f.text_field :name, :class => "text" %></td>
+			<td><%= f.label :required %></td>
+			<td><%= f.check_box :required, :class => "text" %></td>
+		</tr>
+		<%= render :partial => '/admin/fields/partials/default_value', :locals => {:f => f} %></dt>
+		<!--<tr>
+			<td><%= f.label :position %></td>
+			<td colspan="3"><%= f.text_field :position, :class => "text" %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :number_of_selections %></td>
+			<td colspan="3"><%= f.text_field :number_of_selections, :class => "text" %></td>
+		</tr>-->
+		<tr class="buttons">
+			<td colspan="4"><%= f.submit %></td>
+		</tr>
+	</table>
+<% end %>
+
+- if @field.class.name == "DateField
+	javascript:
+		$(function() {
+			$(".#{@field.class.name}_#{@field.class.id}").datepicker({dateFormat: 'dd/mm/yy'});
+		});
+		
+		
+		
+		/*if ($("#field_options_<%= @field.id %>").is(":visible")) {
+	$("#field_options_<%= @field.id %>").slideUp();
+} else {
+	$("#field_options_<%= @field.id %>").html('<%= escape_javascript (render :partial => "/admin/fields/partials/field.html.erb", :object => @field) %>');
+	$(".field_options").not("#field_options_<%= @field.id %>").slideUp();
+	$("#field_options_<%= @field.id %>").slideDown();
+}*/
+
+
+span class="small"
+			= link_to "(Delete)", [field.form, field.becomes(Field)], :confirm => 'Are you sure?', :method => :delete, :remote => true

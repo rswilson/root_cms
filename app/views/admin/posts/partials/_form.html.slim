@@ -1,0 +1,38 @@
+= content_for :js do
+	== javascript_include_tag "post"
+
+== form_for [@post.blog, @post], :html => { :class => 'well' } do |f|
+
+	legend #{controller.action_name.capitalize} Post
+	= f.error_messages
+	
+	div.row-fluid
+		div.span12
+			= f.form_element f, :title, :text_field, @post.errors, :style => "span12"
+		
+	div class="tabbable" style="margin-bottom: 18px;"
+		ul class="nav nav-tabs"
+			li class="active"
+				a href="#tab1" data-toggle="tab" id="wysiwyg_mode" WYSIWYG Editor
+			li
+				a href="#tab2" data-toggle="tab" id="html_mode" HTML Editor
+			li class="pull-right"
+				button data-toggle="modal" data-target="#tags" id="insert_custom_elements" class="btn modalInput"
+					| Insert Custom Elements
+				button data-toggle="modal" data-target="#links" class="btn modalInput"
+					| Insert Link
+				button data-toggle="modal" data-target="#code" class="btn modalInput" style="margin-left: 10px;"
+					| Insert Code
+		div class="tab-content" style="padding-bottom: 9px; border-bottom: 1px solid #ddd;"
+			div class="tab-pane active" id="tab1"
+				= f.text_area :body
+			div class="tab-pane" id="tab2"
+				input id="post_body_html" type="textarea"
+
+	div class="form-actions"
+		= f.submit "Save Post", :class => 'btn btn-primary'
+		= link_to 'Cancel', users_path, :class => 'btn'
+			
+== render :partial => '/admin/pages/partials/page_tags'
+== render :partial => '/admin/pages/partials/links'
+== render :partial => '/admin/pages/partials/code'

@@ -1,0 +1,18 @@
+= f.form_element f, :label, :text_field, @field.errors, :style => "span12"
+
+- if @field.class.name == "DropDown" || @field.class.name == "RadioGroup" || @field.class.name == "CheckBox"
+	= f.label "default_value", "Default Value", :class => 'control-label'
+	select name="field[default_value]" class="span12"
+		option value="" -
+		- for option in @field.field_options do
+			- unless option.new_record?
+				- if option.value == @field.default_value
+					option value="#{option.value}" selected="true" #{option.value}
+				- else
+					option value="#{option.value}" #{option.value}
+- else
+	= f.form_element f, :default_value, :text_field, @field.errors, :style => "span12"
+	
+	
+/ <% if option.value == @field.default_value %>selected<% end %>>
+/ <% if @field.default_value == "" %>selected<% end %>>

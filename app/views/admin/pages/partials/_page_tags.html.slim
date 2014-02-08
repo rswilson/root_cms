@@ -1,0 +1,87 @@
+= content_for :js do
+	== javascript_include_tag "page_tags"
+
+div id="tags" class="modal hide fade" title="Custom Elements"
+  div class="modal-header"
+    button type="button" class="close" data-dismiss="modal" x
+    h3
+			|Insert Tag
+  div class="modal-body"
+		- if Menu.count > 0		
+			div class="tag"
+				div class="tag_title slider#menu_tags"
+					|Menus
+				div class="tag_description"
+					|Add a multi levelled menu
+				div class="tag_types menu_tags"
+					div class="tag_type"
+						div class="tag_type_link"
+							a href="#" class="btn btn-primary" onClick="addMenu($('#menu_id').val())"
+								|Add Menu
+						div class="tag_type_title" Display a menu on this page
+						div class="tag_type_description"
+							|Add Menu
+						div class="tag_type_options"
+							|Menu Name: 
+							= collection_select(:menu, :id, Menu.all, :id, :name)
+		
+		- if Gallery.count > 0
+			div class="tag"
+				div class="tag_title slider#gallery_tags" Galleries
+				div class="tag_description" Add a collection of your pictures to your page
+				div class="tag_types gallery_tags"
+					div class="tag_type"
+						div class="tag_type_link"
+							a href="#" class="btn btn-primary" onClick="addGallery();" Add Gallery
+						div class="tag_type_title" Display an album
+						div class="tag_type_description" Show one or more albums
+						div class="tag_type_options"
+							|Gallery Type: 
+							= select( "gallery", "type", options_for_select({ "All Galleries" => "ALL", "Single Gallery" => "SINGLE" }.sort(), "ALL"), {}, {:onChange => "galleryType(this.value)"})
+							div id="gallery_choice" style="display: none"
+								|Gallery Name: 
+								= collection_select(:gallery, :id, Gallery.all, :id, :name, {})
+		- if Album.count > 0
+			div class="tag"
+				div class="tag_title slider#album_tags" Albums
+				div class="tag_description" Add a photo albums to your page
+				div class="tag_types album_tags"
+					div class="tag_type"
+						div class="tag_type_link"
+							a href="#" class="btn btn-primary" onClick="addAlbum();" Add Album
+						div class="tag_type_title" Display an album on this page
+						div class="tag_type_description" Add Album
+						div class="tag_type_options"
+							|Album Type: 
+							= select( "album", "type", { "All Albums" => "ALL", "Single Album" => "SINGLE"}.sort(), {}, {:value => "ALL", :onChange => "albumType(this.value)"})
+							div id="album_choice" style="display: none"
+								|Album Name: 
+								= collection_select(:album, :id, Album.all, :id, :name, {})
+		- if Blog.count > 0
+			div class="tag"
+				div class="tag_title slider#blog_tags" Blogs
+				div class="tag_description" Add a blog to your page
+				div class="tag_types blog_tags"
+					div class="tag_type"
+						div class="tag_type_link"
+							a href="#" class="btn btn-primary" onClick="addBlog($('#blog_id').val())" Add Blog
+						div class="tag_type_title" Display a blog on this page
+						div class="tag_type_description" Add Blog
+						div class="tag_type_options"
+							|Blog Name: 
+							= collection_select(:blog, :id, Blog.all, :id, :name)
+		- if Form.count > 0
+			div class="tag"
+				div class="tag_title slider#form_tags" Forms
+				div class="tag_description" Add a form to your page
+				div class="tag_types form_tags"
+					div class="tag_type"
+						div class="tag_type_link"
+							a href="#" class="btn btn-primary" onClick="addForm($('#form_id').val())" Add Form
+						div class="tag_type_title" Display a form on this page
+						div class="tag_type_description" Add Form
+						div class="tag_type_options"
+							|Form Name: 
+							= collection_select(:form, :id, Form.all, :id, :name)
+		div class="modal-footer"
+   		a href="#" class="btn" data-dismiss="modal" Close

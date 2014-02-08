@@ -1,0 +1,6 @@
+<div id="album_<%= album.id %>" class="album_preview">
+	<%= link_to display_album_path(album), :class => "album_link" do %>
+		<%= image_tag album.pictures.first.image.url(album.thumbnail_size), :class => "album_thumbnail" %>
+	<% end %><br />
+	<%= link_to album.title, display_album_path(album), :class => "album_title" %>
+</div>

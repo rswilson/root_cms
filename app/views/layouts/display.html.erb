@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title><%= h(yield(:title) || "Untitled") %></title>
+		<link rel="shortcut icon" href="/site_files/images/favicon.ico" />
+		
+		<%= stylesheet_link_tag "display", :media => "all" %>
+		<%= javascript_include_tag "display" %>
+		<%= render :partial => "/shared/lightbox" %>
+
+		<%= csrf_meta_tags %>
+		<script>		
+			$(document).ajaxSend(function(e, xhr, options) {
+				var token = $("meta[name='csrf-token']").attr("content");
+				xhr.setRequestHeader("X-CSRF-Token", token);
+			});
+		</script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<%= yield :head %>
+  </head>
+  <body>
+	 <%- flash.each do |name, msg| -%>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <%- end -%>
+	<%= yield %>
+	
+	
+	<script type="text/javascript">
+		$(function() {
+			set_hidden_elements();
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+- title "Sites"
+
+table
+	tr
+		th Name
+		th Url
+		th Contact Address
+	- for site in @sites
+		tr
+			td = site.name
+			td = site.url
+			td = site.contact_address

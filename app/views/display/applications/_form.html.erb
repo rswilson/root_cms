@@ -1,0 +1,42 @@
+<%= form_for :application, @application, :url => { :controller => "/display/applications", :action => "create" } , :html => { :multipart => true } do |f| %>
+  <%= f.error_messages %>
+
+  <%= f.hidden_field :job_id %>
+
+<table cellpadding="5" cellspacing="0" width="100%">
+	<tr>
+		<td><%= f.label :first_name, "First Name *" %></td>
+		<td><%= f.label :cv, "Curriculum Vitae *" %></td>
+	</tr>
+	<tr>
+		<td><%= f.text_field :first_name %></td>
+		<td><%= f.file_field :cv %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :last_name, "Last Name *" %></td>
+		<td><%= f.label :covering_letter, "Covering Letter" %></td>
+	</tr>
+	<tr>
+		<td><%= f.text_field :last_name %></td>
+		<td><%= f.file_field :covering_letter %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :email, "E-mail *" %></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td><%= f.text_field :email %></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td><%= f.label :content, "Message" %></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td colspan="2"><%= f.text_area :content, :style => "width: 100%" %></td>
+	</tr>
+	<tr>
+		<td colspan="2"><%= f.submit 'Submit Application' %></td>
+	</tr>
+</table>
+<% end %>

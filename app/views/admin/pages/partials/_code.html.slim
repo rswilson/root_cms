@@ -1,0 +1,25 @@
+div id="code" class="modal hide fade" title="Add Code"
+	div class="modal-header"
+		button type="button" class="close" data-dismiss="modal" ×
+		h3
+			| Insert Code
+	
+	form id="add_code"
+		div class="modal-body"
+				div id="errors"
+				table
+					tr
+						td valign="top" = label_tag "Code"
+						td = text_area_tag :code_body, nil, :style => "width: 400px; height: 200px"
+					tr
+						td = label_tag "Code Type"
+						td
+							select id="code_type" name="code_type"
+								option value="html" HTML
+								option value="ruby" Ruby
+		div class="modal-footer"
+			= submit_tag "Add Code", :class => "btn-primary btn"
+			a href="#" class="btn" data-dismiss="modal"
+				| Close		
+
+/ See code.js for javascript

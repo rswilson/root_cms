@@ -1,0 +1,4 @@
+<% title gallery.name %>
+<% for album in gallery.albums do %>
+	<%= render :partial => "/display/albums/album_thumbnail", :locals => {:album => album} %>
+<% end %>

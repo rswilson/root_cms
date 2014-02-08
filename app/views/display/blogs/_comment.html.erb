@@ -1,0 +1,5 @@
+<div class="comment comment_<%= comment.id%> <%= cycle('odd','even') %>">
+	<div class="comment_time">Posted <%= time_ago_in_words(comment.created_at) %> ago</div>
+	<div class="comment_name"><%= (comment.name.nil? || comment.name == "") ? "Anonymous" : comment.name %> said...</div>
+	<div class="comment_body"><%= h(comment.body) %></div>
+</div>

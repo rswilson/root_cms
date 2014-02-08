@@ -1,0 +1,9 @@
+- if blog.posts.size == 0
+	p Get started, make a #{link_to "new post", new_blog_post_path(blog)}
+- else
+	p
+		|Currently you have 
+		strong #{blog.posts.size} 
+		| posts(s). #{link_to "Add a new post?", new_blog_post_path(blog)}
+
+	== render :partial => '/admin/posts/partials/post', :collection => blog.posts

@@ -1,0 +1,38 @@
+- title "File Manager"
+
+h3 File Manager
+
+div class="tabbable"
+	ul class="nav nav-pills"
+		li class=""
+			a href="#tab1" data-toggle="tab"
+				|Upload File
+		li
+			a href="#tab2" data-toggle="tab"
+				|Create Folder
+	div class="tab-content"
+		div class="tab-pane" id="tab1"
+			= render :partial => '/admin/files/partials/upload_file'
+		div class="tab-pane" id="tab2"
+			= render :partial => '/admin/files/partials/make_folder'
+
+div.well
+
+	div style="margin-bottom: 10px;"
+		button.btn type="button" id="expand_all"
+			|Expand All
+		button.btn type="button" id="collapse_all"
+			|Collapse All
+
+	ul id="directory_listing"
+		= render :partial => '/admin/files/partials/directory', :locals => { :directory => @root_directory }
+		
+javascript:
+	$(document).ready(function() {
+		$('#expand_all').click(function() {
+			$("[id^='directory_contents_public']").show();
+		});		
+		$('#collapse_all').click(function() {
+			$("[id^='directory_contents_public']").hide();
+		});	
+	});

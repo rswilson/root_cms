@@ -1,0 +1,4 @@
+div.control-group
+	= render :partial => '/admin/forms/partials/label', :object => field
+	div.controls
+		= render :partial => '/admin/forms/partials/'+field.type.to_s.underscore+'.html.erb', :object => field

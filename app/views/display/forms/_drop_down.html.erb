@@ -1,0 +1,7 @@
+<div class="field_drop_down">
+	<select name="form_submission[form_submission_fields_attributes][<%= i %>][value]">
+		<% for option in drop_down.field_options do %>
+		<option value="<%= option.value %>" <% if option.value ==  submitted_field.value || option.value == drop_down.default_value %>selected<% end %>><%= option.value %></option>
+		<% end %>
+	</select>
+</div>

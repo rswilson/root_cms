@@ -1,0 +1,28 @@
+<li class="span3" style="display:inline-block; vertical-align: top; float: left; padding: 0px; margin: 10px">
+	<div class="thumbnail">
+		<a href="<%= picture.image.url(picture.album.lightbox_size) %>" rel="lightbox[<%= picture.album.title %>]" title="<%= picture.caption %>" class="thumbnail">
+			<%= image_tag picture.image.url(picture.album.thumbnail_size) %>
+		</a>
+		<div class="caption">
+		<h4><%= picture.title %></h4>
+			<p><%= picture.caption %></p>
+			<p>
+				<%= link_to gallery_album_picture_rotate_path(picture.album.gallery, picture.album, picture, :degrees => -90, :parent_page => parent_page), :class => "btn" do %>
+					<i class="icon-arrow-left"></i>
+					Rotate
+				<% end %>
+				<%= link_to gallery_album_picture_rotate_path(picture.album.gallery, picture.album, picture, :degrees => 90, :parent_page => parent_page), :class => "btn" do %>
+					<i class="icon-arrow-right"></i>
+					Rotate
+				<% end %>
+			</p>
+			<p>
+				<%= link_to "Edit Picture", edit_gallery_album_picture_path(picture.album.gallery, picture.album, picture), :class => "btn btn-success" %>
+				<a href="/admin/galleries/<%= picture.album.gallery.id %>/albums/<%= picture.album.id %>/pictures/<%= picture.id %>" class="btn btn-danger" data-confirm="Are you sure?" data-method="delete" rel="nofollow">
+					<i class="icon-trash"></i>
+					Delete
+				</a>			
+			</p>
+		</div>
+	</div>
+</li>

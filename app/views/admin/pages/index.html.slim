@@ -1,0 +1,18 @@
+- title "Pages"
+
+h2 Pages
+
+- if @total_pages.size == 0 && @total_folders.size == 0
+	p
+		| Get started, make a = link_to "new page", new_page_path
+- else
+
+	p
+		|You currently have #{@total_pages} pages in #{@total_folders} folders:  #{link_to "And New Page", new_page_path(@page), :class => 'btn btn-primary'}
+
+			
+	ul.well style="margin-left: 0px" id="page-list"
+		- for folder in @folders
+			= render :partial => '/admin/pages/partials/folder', :object => folder
+		- for page in Page.where("folder_id is null")
+			= render :partial => '/admin/pages/partials/page', :object => page

@@ -1,0 +1,16 @@
+span style="font-weight: bold" Gallery: 
+div id="gallery-dropdown" class="btn-group"
+	button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+		| Select Gallery: 
+		span class="caret"
+	ul class="dropdown-menu" role="menu"
+		- for gallery in galleries do
+			li
+				= link_to gallery.name, :controller => "uploader", :action => "albums", :gallery_id => gallery.id, :remote => true
+				
+javascript:
+	$('#gallery-dropdown ul li a').click(function () {
+		console.log("Clicked link:" + $(this).text());
+		$('#gallery-dropdown button').text($(this).text());
+		$("#gallery-dropdown").removeClass('open');
+	});

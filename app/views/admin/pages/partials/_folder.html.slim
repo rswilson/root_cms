@@ -1,0 +1,10 @@
+li.folder
+	= link_to folder.name, edit_folder_path(folder, :referring_page => @referring_page), :class => "dd-folder"
+
+	- for page in folder.pages.order(:name)
+		ul
+			= render :partial => '/admin/pages/partials/page', :locals => { :page => page }
+	
+	- for sub_folder in folder.sub_folders
+		ul
+			= render :partial => '/admin/pages/partials/folder', :locals => { :folder => sub_folder }

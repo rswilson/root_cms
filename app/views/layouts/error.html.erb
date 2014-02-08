@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<title><%= h(yield(:title) || "Untitled") %></title>
+		<%= stylesheet_link_tag 'error' %>
+		<%= yield(:head) %>
+		<link rel="shortcut icon" href="/site_files/images/favicon.ico" />
+	</head>
+	<body>
+		<div id="error_page">
+			<%- if show_title? -%>
+				<h1 id="error_title"><%=h yield(:title) %></h1>
+			<%- end -%>
+			<div id="error">
+				<%= yield %>
+			</div>
+		</div>
+	</body>
+</html>

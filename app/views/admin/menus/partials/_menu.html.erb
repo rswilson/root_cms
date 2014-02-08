@@ -1,0 +1,3 @@
+<% for menu_item in menu.root.to_a %>
+	<%= render :partial => "/admin/menus/partials/display_sub_menu", :object => menu_item %>
+<% end %>

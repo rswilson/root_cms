@@ -1,0 +1,72 @@
+css:
+	
+	body {
+		padding-top: 80px;
+		padding-bottom: 80px;
+		background-color: #4B7399;
+	}
+
+	#site_form {
+		padding: 19px 29px 29px;
+		margin: 0 auto 20px;
+		background-color: #fff;
+		border: 1px solid #e5e5e5;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+		-moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+		box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	}
+	
+	#site_form #site_form-heading {
+		text-align: center;
+		margin-bottom: 30px;
+	}
+	
+	#site_form .checkbox {
+		margin-bottom: 10px;
+	}
+	
+
+	#site_form input[type="text"],
+	#site_form input[type="password"] {
+		font-size: 16px;
+		height: auto;
+		margin-bottom: 15px;
+		padding: 7px 9px;
+	}
+
+- title "Welcome to Root CMS"
+
+== form_for @site, :name => "form_login", html: { class: "well", id: "site_form" } do |f|
+	fieldset
+		legend Root CMS Setup
+
+		= error_messages_for @site
+		= error_messages_for @user
+		- @user.password = @user.password_confirmation = nil
+	
+		p We need a little info before we get started...
+
+		legend About the Site
+		
+		div.row-fluid
+			div.span12			
+				= f.form_element f, :name, :text_field, @site.errors, :style => "span12"
+				= f.form_element f, :url, :text_field, @site.errors, :style => "span12"
+				= f.form_element f, :contact_address, :text_field, @site.errors, :style => "span12"
+
+		legend About you
+		
+		div.row-fluid
+			div.span12
+				= fields_for @user do |u|
+					= u.form_element u, :username, :text_field, @user.errors, :style => "span12"
+					= u.form_element u, :email, :text_field, @user.errors, :style => "span12"
+					= u.form_element u, :password, :password_field, @user.errors, :style => "span12"
+					= u.form_element u, :password_confirmation, :password_field, @user.errors, :style => "span12"
+				
+		div class="form-actions"
+			= submit_tag "Get Started...", :class => 'btn btn-primary'
+

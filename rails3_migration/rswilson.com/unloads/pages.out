@@ -1,0 +1,195 @@
+1|1|Homepage|Home|<div class="caption">\
+	<p>\
+		Pull up a chair, make your self comfy and take time to indulge...</p>\
+</div>\
+<h1>\
+	Welcome to rswilson.com</h1>\
+<p>\
+	This is a shrine dedicated to Robert Wilson. Not really, just a place to showcase my achievements, goals and desires for the future. Hopefully you will find something interesting...</p>\
+<p>\
+	#BLOG1#</p>\
+|index.html|\N|1|2010-01-27 23:06:35|2011-03-05 17:27:13
+2|1|About Me|About Me|<div class="caption">\
+	<p>\
+		A little something about me...</p>\
+</div>\
+<h1>\
+	Who are you?</h1>\
+<p>\
+	My name is Robert Wilson, 27, from the UK. I am as we speak currently living and working in London. I have a degree in Computer Science and currently working in web development.</p>\
+<h1>\
+	Why did I make this site?</h1>\
+<p>\
+	This site is essentially a show case of my work and a little insight into my mind. It reality it should hopefully serve a token for recording and reminisicing about my work and past projects</p>\
+<h1>\
+	The voyersitic bit...</h1>\
+<h2>\
+	Bio:</h2>\
+<p>\
+	A run down about me:</p>\
+<table border="0" cellpadding="0" cellspacing="5">\
+	<tbody>\
+		<tr>\
+			<th>\
+				Name:</th>\
+			<td>\
+				Robert Wilson</td>\
+		</tr>\
+		<tr>\
+			<th>\
+				Age:</th>\
+			<td>\
+				27</td>\
+		</tr>\
+		<tr>\
+			<th>\
+				Nationality:</th>\
+			<td>\
+				British</td>\
+		</tr>\
+		<tr>\
+			<th>\
+				Current Residence:</th>\
+			<td>\
+				London, UK</td>\
+		</tr>\
+	</tbody>\
+</table>\
+<h2>\
+	Education:</h2>\
+<table border="0" cellpadding="0" cellspacing="5">\
+	<tbody>\
+		<tr>\
+			<th>\
+				Degree:</th>\
+			<td>\
+				Masters in Computer Science w/ Study Abroad from the University of Bristol (the proper one!)</td>\
+		</tr>\
+		<tr>\
+			<th>\
+				School:</th>\
+			<td>\
+				3 A-levels (Maths-A, Computing-A, Economics-B, Geography-A(AS))<br />\
+				10 GCSEs (6 A*, 4A) from Monmouth School</td>\
+		</tr>\
+	</tbody>\
+</table>\
+<h2>\
+	Job Hightlights:</h2>\
+<table border="0" cellpadding="0" cellspacing="5">\
+	<tbody>\
+		<tr>\
+			<th>\
+				Current Job:</th>\
+			<td>\
+				Support operative for OpenBet Technology Ltd.</td>\
+		</tr>\
+		<tr>\
+			<th>\
+				Last Job:</th>\
+			<td>\
+				Web developer with <a href="http://www.lcubed.com.au" target="_blank">L<sup>CUBED</sup></a></td>\
+		</tr>\
+		<tr>\
+			<th>\
+				Other jobs:</th>\
+			<td>\
+				Bar man for Wetherspoons, Coffee shop barista, Database developer for Social Services etc. (See&nbsp;<a data-page_id="4" href="/jobs.html">CV</a>)</td>\
+		</tr>\
+	</tbody>\
+</table>\
+<p>\
+	&nbsp;</p>\
+|about_me.html|\N|1|2010-01-28 00:09:53|2011-03-05 00:13:47
+3|1|Projects|Projects|<div class="caption">\
+<p>What I've been up to recently (and in the past)</p>\
+</div>\
+<h1>A quick break down via topic...</h1>\
+<ul id="by_topic">\
+<li><a href="#">Web Developement</a></li>\
+<li><a href="#">Java</a></li>\
+<li><a href="#">C++</a></li>\
+<li><a href="#">Others?</a></li>\
+</ul>\
+<h1>Recent Project Showcase</h1>\
+<div class="caption">\
+<p>Here I will spotlight my latest and possibly greatest work</p>\
+</div>\
+<h2>RootCMS (what this site is running on!)</h2>\
+<p>RootCMS is my attempt at a simple lightweight content management system for the web. I was getting increasingly frustrated finding a solution for friends and family who wanted websites. The problems they had:</p>\
+<ul>\
+<li>Want something simple!</li>\
+<li>Don't want it too simple! Blogger et al. all have their limitations</li>\
+<li>Dreamweaver and tools are awkward to learn, produce horrible code and still leaves a lot of manual leg work</li>\
+</ul>\
+<p>I looked around the internet for free CMS and found great examples like Joomla but I was just got increasingly frustrated by them. They were just far too complicated. The Open Source community is great and all, but when so many people request features and plugins then the key vision of the software is lost. I wanted to cut away the fat and make a basic, simple, easy to use, clean CMS. So I hope this is what I achieved</p>\
+<p>Interested? Read more in the <a href="../../Projects/rootcms.html">RootCMS project</a> page</p>|projects.html|\N|1|2010-01-28 00:10:43|2010-01-29 15:27:10
+4|1|Jobs|Jobs|<div class="caption">\
+<p>In the effort of self promotion, I shamelessly flog my CV on the open market</p>\
+</div>\
+<h1>A little bit about me and my background</h1>\
+<p>First things first, if you want skip straight to the point, you can grab my CV in two flavours:</p>\
+<p><a href="#">CV (html version)</a></p>\
+<p><a href="#">CV (pdf version)</a></p>\
+<div class="caption">\
+<p>For those who would rather see the whole CV summarised...</p>\
+</div>\
+<h1>What jobs am I interested in?</h1>\
+<p>In general, something Computer based. However, I am also interest in the financial world, so if there is an exciting opening in that world I am more than open to it.</p>\
+<p>I believe I am pretty versatile but general roles I would be interested in...</p>\
+<ul>\
+<li><strong>Computer Games</strong> - Production, Coding, Developing - Whatever I can get my foot in the door with!</li>\
+<li><strong>Web Development</strong> - Coding, Scripting - Must be exciting!</li>\
+<li><strong>Other app development</strong> - Java/C++ based</li>\
+</ul>\
+<p>My main requirement is that the company/project excites me. I like to try cool things or innovate, so if that sounds like your philosophy then we could be a perfect match!</p>|jobs.html|\N|1|2010-01-28 00:11:12|2010-01-29 14:37:01
+5|1|Contact Me|Contact Me|<div class="caption">\
+	<p>\
+		Well we are all meant to be doing our bit for Web 2.0. Here is my effort, you e-mail me...I e-mail back. Viola! 2 way communication!</p>\
+</div>\
+<h1>\
+	Seriously, if you wanna get in touch...</h1>\
+<p>\
+	As mentioned somewhere else on the site, I appreciated feedback, comments, general words of wisdom, random rantings. I also get a warm fuzzy feeling if someone presses submit on this wonderful form. So go on, be a devil and send me something (preferbly not a virus, but heck I got a mac, so try me!)</p>\
+<p>\
+	#FORM1#</p>\
+|contact_me.html|\N|1|2010-01-28 00:12:02|2011-03-04 23:37:18
+6|\N|Site Down for Maintenance|Site Down for Maintenance|<p>\
+	This site is currently down for maintenance. We apologise for any inconvenience this may cause. Thank you.</p>\
+\
+<script type="text/javascript">\
+\
+  var _gaq = _gaq \|\| [];\
+  _gaq.push(['_setAccount', 'UA-1767493-6']);\
+  _gaq.push(['_trackPageview']);\
+\
+  (function() {\
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;\
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';\
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);\
+  })();\
+\
+</script>\
+|site_down.html|\N|1|2010-01-28 00:27:40|2011-04-26 16:57:55
+7|1|RootCMS|RootCMS - Lightweight, simple CMS|<div class="caption">\
+<p>Simple, lightweight, easy to use CMS? Is it possible?</p>\
+</div>\
+<h1>RootCMS</h1>\
+<p>RootCMS is my take on a CMS. It was written out of a passion to provide a simple CMS for me, my friends and my family. I also used it as an excuse to learn some news skill using Ruby on Rails.</p>\
+<p>I'm pretty proud of it. This whole site is running in RootCMS and I am writing this content inside of it as we speak. It is still a work in progress and hopefully new features will come.</p>\
+<h2>What?</h2>\
+<p>RootCMS is a light, easy to use CMS. I don't claim that it does everything, it does the basics and I feel it does them well. More will come, but so far here is the features list:</p>\
+<ul>\
+<li>Page Templates</li>\
+<li>Page Content</li>\
+<li>Folders</li>\
+<li>Menus</li>\
+<li>File Manager</li>\
+<li>Photos, Albums and Galleries</li>\
+</ul>\
+<h2>How?</h2>\
+<p>RootCMS is built using the Ruby on Rail framework. I originally became interested in Ruby on Rails a few years back when it originally came to life. I had done a few small sites in it, but nothing on this scale or complexity. I have really learnt a lot with this project and am please with the results.</p>\
+<p>I have found Rails to be a real productivity win for me. I like achieving things rapidly. Iterating the product until I am happy with it. It removes a lot of the frustrating barriers of Web development</p>\
+<h2>Where can I get it?</h2>\
+<p>I am currently reworking RootCMS into a plugin for Rails so that you can easily add CMS functionality into your project. This will be open source and hosted on GitHub.</p>\
+<p>Until then, you can view the project's progress in my <a href="http://git.rswilson.com">git repository</a>.</p>|rootcms.html|1|1|2010-01-29 15:18:38|2010-01-29 15:19:04

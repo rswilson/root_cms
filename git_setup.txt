@@ -1,0 +1,14 @@
+Set up the repository on the shared server:
+
+510  mkdir root_cms.git
+512  cd root_cms.git/
+513  git --bare init --shared
+
+Then locally inside your working directory:
+
+git init
+1137  git remote add origin root@rswilson.com:/var/git/root_cms.git
+1138  git add *
+1139  git status
+1142  git commit -a -m "Initial commit - mostly ported across"
+1143  git push origin master

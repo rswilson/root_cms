@@ -1,0 +1,9 @@
+<% title "#{@site.global_title}#{page.title}" %>
+<h3>Render</h3>
+<% content_for :head %>
+	<% if !page.page_template.nil? && !page.page_template.header_content.nil? %>
+		<%= page.page_template.header_content.html_safe %>
+	<% end %>
+<% end %>
+
+<% coderay(@page.final_content.html_safe) %>

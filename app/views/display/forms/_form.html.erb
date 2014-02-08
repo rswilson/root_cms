@@ -1,0 +1,54 @@
+<div id="form">
+	<%= form_for [:display, @form_submission], :remote => :true, :html => { :honeypot => true } do |f| %>
+
+		<% if @form_submission.get_errors.any? %>
+		<div id="errors">
+			<div id="error_explanation">
+				<h2>Oops, we spotted <%= pluralize(@form_submission.get_errors.count, "error") %> on your form.</h2>
+
+				<ul>
+				<% for error in @form_submission.get_errors do %>
+					<li><strong><%= error[:field].plain_label %></strong> <%= error[:error_message] %></li>
+				<% end %>
+				</ul>
+			</div>
+		</div>
+		<% end %>
+
+		<% if @form_submission.form.description %>
+			<p><%= @form_submission.form.description %></p>
+		<% end %>
+
+		<div id="form_submission">
+			<dl>
+			<% i = 0 %>
+			<% for form_submission_field in @form_submission.form_submission_fields %>
+			<dt><label for="form_submission_form_submission_fields_attributes_<%= i %>_value" <% if form_submission_field.errors.any? %> class="fieldWithErrors" <% end %>><%= form_submission_field.label %></label>
+			<input id="form_submission_form_submission_fields_attributes_<%= i %>_name" name="form_submission[form_submission_fields_attributes][<%= i %>][name]" value="<%= form_submission_field.field.name %>" type="hidden"/>
+			<input id="form_submission_form_submission_fields_attributes_<%= i %>_field_id" name="form_submission[form_submission_fields_attributes][<%= i %>][field_id]" value="<%= form_submission_field.field.id %>" type="hidden" /></dt>
+			<dd><%= render :partial => '/display/forms/'+form_submission_field.field.type.to_s.underscore, :object => form_submission_field.field, :locals => {:i => i, :submitted_field => form_submission_field} %></dd>
+			<% i += 1 %>
+			<% end %>
+			<dt></dt>
+			<dd><%= f.submit @form_submission.form.submit_text %></dd>
+			</dl>
+			<br class="clear" />
+		</div>
+		<%= f.hidden_field :form_id %>
+		<%= hidden_field_tag :page_id, @page.id %>
+		<%= hidden_field_tag :referring_url, request.fullpath %>
+	<% end %>
+</div>
+
+<script>
+	
+	$(function() {
+	
+		$("#new_form_submission").submit(function() {
+			logger("Submitting the new_submission_form");
+			$("#error_explanation").remove();
+			$("#new_form_submission").prepend("<div id='flash_info'>Submitting form. Just a sec...</div>");
+		});
+	});
+
+</script>

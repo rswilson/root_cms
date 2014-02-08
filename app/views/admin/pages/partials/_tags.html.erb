@@ -1,0 +1,72 @@
+<div class="menu_tag">
+	<a class="tag_add_link" href="#" onClick="addMenu($('#menu_id').val())">Add Menu</a>
+	Menu Name: <%= collection_select(:menu, :id, Menu.all, :id, :name) %>
+</div>
+
+<div class="menu_tag">
+	<a class="tag_add_link" href="#" onClick="addGallery();">Add Gallery</a>
+	Gallery Type:<%= select( "gallery", "type", options_for_select({ "All Galleries" => "ALL", "Single Gallery" => "SINGLE" }.sort(), "ALL"), {}, {:onChange => "galleryType(this.value)"}) %>
+	<br />Gallery Name: <%= collection_select(:gallery, :id, Gallery.all, :id, :name, {}, {:style => "display: none"}) %>
+</div>
+
+<div class="menu_tag">
+	<a class="tag_add_link" href="#" onClick="addAlbum();">Add Album</a>
+	Album Type: <%= select( "album", "type", { "All Albums" => "ALL", "Single Album" => "SINGLE"}.sort(), {}, {:value => "ALL", :onChange => "albumType(this.value)"}) %>
+	<br />Album Name: <%= collection_select(:album, :id, Album.all, :id, :name, {}, {:style => "display: none"}) %>
+</div>
+
+<script>
+	function galleryType(type) {
+		if (type == "SINGLE") {
+			$("#gallery_id").show();
+		} else {
+			$("#gallery_id").hide();
+		}
+	}
+
+	function albumType(type) {
+		if (type == "SINGLE") {
+			$("#album_id").show();
+		} else {
+			$("#album_id").hide();
+		}
+	}
+
+	function addMenu(menu_id) {
+		var menu_tag = "#MENU"+menu_id+"#";
+		alert("Would add menu tag: " + menu_tag);
+		insertHTML(menu_tag);
+	}
+
+	function addGallery() {
+		var galleryType = $('#gallery_type').val();
+		if ( galleryType == "ALL") {
+			var gallery_tag = "#ALL_GALLERIES#";
+			alert("Would add gallery tag: " + gallery_tag);
+			insertHTML(gallery_tag);
+		} else {
+			var galleryID = $('#gallery_id').val();
+			var gallery_tag = "#GALLERY"+galleryID+"#";
+			alert("Would add gallery tag: " + gallery_tag);
+			insertHTML(gallery_tag);
+		}
+	}
+
+	function addAlbum() {
+		var albumType = $('#album_type').val();
+		if ( albumType == "ALL") {
+			var album_tag = "#ALL_ALBUMS#";
+			alert("Would add album tag: " + album_tag);
+			insertHTML(album_tag);
+		} else {
+			var albumID = $('#album_id').val();
+			var album_tag = "#ALBUM"+albumID+"#";
+			alert("Would add album tag: " + album_tag);
+			insertHTML(album_tag);
+		}
+	}
+
+	/*function insertHTML(html) {
+		tinyMCE.execInstanceCommand("page_content","mceInsertContent",false,html);
+	}*/
+</script>

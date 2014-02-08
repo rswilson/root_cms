@@ -1,0 +1,21 @@
+- title "Menus"
+
+div class="row-fluid"
+	div class="span6"
+		div class="row-fluid"
+			div id="menu_edit_form" class="span12"
+				- form_title "Edit Menu"
+				= render :partial => '/admin/menus/partials/form', :locals => {:title => "Edit Menu"}
+		div class="row-fluid"
+				div id="add_menu_item" class="span12"
+					- form_title "Add Menu Item"
+					== render :partial => '/admin/menu_items/partials/form'
+
+	div id="organise_menu" class="span6 well"
+		fieldset
+			legend Organise your menu
+			== render :partial => '/admin/menus/partials/organise_menu', :object => @menu
+		
+
+	
+div class="clearfix"

@@ -1,0 +1,11 @@
+<% if @comment.post.blog.approve_comments && !@comment.approved%>
+<% else %>
+	$("#post_<%= @comment.post.id %> .comments").html("<%= escape_javascript (render :partial => '/display/blogs/comments', :locals => {:post => @comment.post}) %>");
+	$("#post_<%= @comment.post.id %> .comment_<%= @comment.id %>").effect("highlight", {}, 3000);
+<% end %>
+
+$("#post_<%= @comment.post.id %> .add_comment #comment_flash").html("<%= escape_javascript (flash[:success]) %>");
+$("#post_<%= @comment.post.id %> .add_comment #comment_flash").show();
+
+$("#new_comment_post_<%= @comment.post.id %> ")[0].reset();
+$("#post_<%= @comment.post.id %> .add_comment #errors").html("");

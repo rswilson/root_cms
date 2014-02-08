@@ -1,0 +1,88 @@
+#tags {
+	/*padding: 5px 10px 5px 10px;
+	margin: 0px;
+	background-color: #F8F8F8;
+	background-color: #EDEAE3;
+	border: 3px solid #DAD8D5;*/
+}
+
+.tag {
+	border: 1px solid #DAD8D5;
+	margin: 5px 0px 5px 0px;
+	padding: 10px;
+	background-color: #EEE4CB;
+}
+
+.tag_title {
+	font-weight: bold;
+	font-size: 16px;
+	display: inline;
+	cursor: pointer;
+}
+
+.tag_description {
+	font-weight: normal;
+	font-size: 14px;
+	font-style: italic;
+	display: inline;
+	margin-left: 5px;
+}
+
+.tag_type_description {
+	margin-left: 5px;
+}
+
+.tag_types {
+	margin: 10px 0px 0px 0px;
+	border: 1px solid #5D5950;
+	border-bottom: none;
+}
+
+.tag_type {
+	padding: 10px;
+	background-color: #FCFBF9;
+	border-bottom: 1px solid #5D5950;
+}
+
+.tag_type_title {
+	font-size: 14px;
+	font-weight: bold;
+	display: inline;
+}
+
+.tag_type_description {
+	font-weight: normal;
+	font-size: 12px;
+	font-style: italic;
+	display: inline;
+}
+
+.tag_type_options {
+	padding: 10px 10px 0px 10px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.tag_type_link {
+	float: right;
+}
+
+.tag_type_link a {
+	/*color: #4B7399;*/
+}
+
+#album_choice, #gallery_choice {
+	display: inline;
+}
+
+.modal-header {
+	border-bottom: none;
+}
+
+.modal-header {
+	padding-bottom: 0px;
+}
+
+.modal-header h3 {
+	margin-bottom: 0px !important;
+}

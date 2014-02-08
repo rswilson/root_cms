@@ -1,0 +1,2 @@
+$("#post_<%= @comment.post.id %> .add_comment #errors").replaceWith("<%= escape_javascript (render :partial => 'display/errors/generic', :object => @comment) %>");
+$("#post_<%= @comment.post.id %> .add_comment #comment_flash").html("").hide();

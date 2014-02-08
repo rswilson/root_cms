@@ -1,0 +1,8 @@
+<!--<div class="field_radio_group">
+	Num: <%= radio_group.field_options.count %>-->
+	<% for option in radio_group.field_options do %>
+		<% unless option.new_record? %>
+			<input type="radio" name="radio_group" value="<%= option.value %>" <% if option.value == radio_group.default_value %>checked<% end %>/><%= option.value %>
+		<% end %>
+	<% end %>
+<!--</div>-->

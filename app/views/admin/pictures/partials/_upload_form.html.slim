@@ -1,0 +1,19 @@
+== form_for [@picture.album.gallery, @picture.album, @picture], :html => { :multipart => true, :class => 'well' } do |f|
+	fieldset
+		legend Upload Picture
+		= f.error_messages
+		= hidden_field_tag :uploader, true
+		= hidden_field_tag :redirect_url, request.original_url
+		
+		div.row-fluid
+			div.span6
+				= f.form_element f, :title, :text_field, @picture.errors, :style => "span12"
+			
+			div.span6
+				div class="control-group"
+					= f.label :image, :class => 'control-label'
+					div class="controls"
+						= f.file_field :image, :class => 'file_field', :class => "span12"
+
+		div class="form-actions"
+			= f.submit "Upload Picture", :class => 'btn btn-primary'

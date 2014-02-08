@@ -1,0 +1,30 @@
+div class="dd" id="nestable3"
+	ol class="dd-list"
+		- for menu_item in organise_menu.root.to_a
+			== render :partial => "/admin/menus/partials/sub_menu", :object => menu_item
+
+textarea id="nestable-output" style="display: none"
+
+javascript:
+	$(document).ready(function()
+	{
+			var updateOutput = function(e)
+			{
+					var list	 = e.length ? e : $(e.target),
+							output = list.data('output');
+					if (window.JSON) {
+							output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
+					} else {
+							output.val('JSON browser support required for this demo.');
+					}
+					
+					var url = "/admin/menus/#{organise_menu.id}/menu_items/sort"
+					var json_input = window.JSON.stringify(list.nestable('serialize'));
+					$.post(url, "_method=post&authenticity_token="+ encodeURIComponent('#{form_authenticity_token}')+"&menu="+ json_input);
+
+			};
+			// activate Nestable for list 1
+			$('#nestable3').nestable({})
+			.on('change', updateOutput);
+			updateOutput($('#nestable3').data('output', $('#nestable-output')));
+	});

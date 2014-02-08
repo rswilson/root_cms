@@ -1,0 +1,5 @@
+<% for option in check_box.field_options do %>
+	<%- unless option.new_record? %>
+		<input type="checkbox" name="check_box" value="<%= option.value %>" <% if option.value == check_box.default_value %>checked<% end %> /><%= option.value %>
+	<%- end %>
+<% end %>

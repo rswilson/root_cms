@@ -1,0 +1,30 @@
+- title "#{model.class.name.pluralize.underscore.humanize}"
+
+h2 #{model.class.name.pluralize.underscore.humanize}
+
+- if models.size == 0
+
+	p Get started: #{link_to "And New #{model.class.name.underscore.humanize}", new_polymorphic_path(model), :class => 'btn btn-primary'}
+
+- else
+
+	p Currently you have <strong>#{models.size}</strong> #{model.class.name.underscore.humanize.downcase}(s). #{link_to "And New #{model.class.name.underscore.humanize}", new_polymorphic_path(model), :class => 'btn btn-primary'}
+	
+	- if !defined?(skip_list)
+
+		table class="table table-striped"
+			thead
+				tr
+					th align="left" width="80%" == model.class.name.underscore.humanize.pluralize
+					th width="20%" style="text-align: right"
+						span style="margin-right: 20px" Actions
+			tbody
+				- for m in models
+					tr
+						td width="80%"
+							= link_to m[name], edit_polymorphic_path(m)
+						td width="20%" style="text-align: right"
+							= link_to 'Edit', edit_polymorphic_path(m), :class => 'btn btn-mini'
+							= link_to 'Delete', polymorphic_path(m), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger'
+
+		div style="clear: both;"

@@ -1,0 +1,6 @@
+$( "#cke_114_uiElement" ).click(function() {
+  alert( "Handler for .click() called." );
+  return false;
+});
+
+$("#").click("console.log('fgfg');return false;");

@@ -1,0 +1,13 @@
+== form_for :file, :url => { :controller => "admin/files", :action => "update" }, :method => "post" do |f|
+	= f.hidden_field :path
+	fieldset
+		legend #{controller.action_name.capitalize} File
+		= f.error_messages
+		
+		div.row-fluid
+			div.span6
+				= f.form_element f, :name, :text_field, {}, :style => "span12"
+
+		div class="form-actions"
+			= f.submit "Save File", :class => 'btn btn-primary'			
+			= link_to 'Cancel', files_path, :class => 'btn'

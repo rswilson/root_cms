@@ -1,0 +1,32 @@
+<ul class="nav nav-list">
+<%= render :partial => '/shared/menu_item', :locals => {:path => url_for(:controller => "/admin", :action => "index"), :text => "Home", :icon => "icon-home"} %>
+<li class="nav-header">Page Templates</li>
+<%= render :partial => '/shared/menu_item', :locals => {:path => page_templates_path, :text => "View All Page Templates", :icon => "icon-file"} %>
+<%= render :partial => '/shared/menu_item', :locals => {:path => new_page_template_path, :text => "Add New Page Template", :icon => "icon-plus"} %>
+<li class="nav-header">Pages</li>
+<%= render :partial => '/shared/menu_item', :locals => {:path => pages_path, :text => "View All Pages", :icon => "icon-file"} %>
+<%= render :partial => '/shared/menu_item', :locals => {:path => new_page_path, :text => "Add New Page", :icon => "icon-plus"} %>
+<li class="nav-header">Folders</li>
+<%= render :partial => '/shared/menu_item', :locals => {:path => folders_path, :text => "View All Folders", :icon => "icon-folder-open"} %>
+<%= render :partial => '/shared/menu_item', :locals => {:path => new_folder_path, :text => "Add New Folder", :icon => "icon-plus"} %>
+<li class="nav-header">Menus</li>
+<%= render :partial => '/shared/menu_item', :locals => {:path => menus_path, :text => "View All Menus", :icon => "icon-th-list"} %>
+<%= render :partial => '/shared/menu_item', :locals => {:path => new_menu_path, :text => "Add New Menu", :icon => "icon-plus"} %>	
+<li class="nav-header">Photos</li>
+<%= render :partial => '/shared/menu_item', :locals => {:path => galleries_path, :text => "View All Galleries", :icon => " icon-th"} %>
+<%= render :partial => '/shared/menu_item', :locals => {:path => new_gallery_path, :text => "Add New Gallery", :icon => "icon-plus"} %>		
+<% unless Gallery.first.nil? %>
+	<%= render :partial => '/shared/menu_item', :locals => {:path => new_gallery_album_path(Gallery.first), :text => "Add New Album", :icon => "icon-plus"} %>
+<% end %>
+<li class="nav-header">Forms</li>
+<%= render :partial => '/shared/menu_item', :locals => {:path => forms_path, :text => "View All Forms", :icon => "icon-list-alt"} %>
+<%= render :partial => '/shared/menu_item', :locals => {:path => new_form_path, :text => "Add New Form", :icon => "icon-plus"} %>
+<li class="nav-header">Blogs</li>
+<%= render :partial => '/shared/menu_item', :locals => {:path => blogs_path, :text => "View All Blogs", :icon => "icon-book"} %>
+<%= render :partial => '/shared/menu_item', :locals => {:path => new_blog_path, :text => "Add New Blog", :icon => "icon-plus"} %>	
+<li class="nav-header">Files</li>
+<%= render :partial => '/shared/menu_item', :locals => {:path => files_path, :text => "File Manager", :icon => "icon-folder-close"} %>
+<li class="nav-header">Users</li>
+<%= render :partial => '/shared/menu_item', :locals => {:path => users_path, :text => "View All Users", :icon => "icon-user"} %>
+<%= render :partial => '/shared/menu_item', :locals => {:path => edit_user_path(current_user), :text => "Settings", :icon => "icon-cog"} %>
+</ul>

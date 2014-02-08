@@ -1,0 +1,4 @@
+$('#new_form_submission').fadeOut('slow', function() {
+	// Animation complete.
+	$("#form").html('<%= escape_javascript (render :partial => "/display/forms/submitted_success") %>');
+});

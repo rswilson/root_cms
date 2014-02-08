@@ -1,0 +1,10 @@
+li class="dd-item dd3-item" data-id="#{sub_menu.id}"
+	div class="dd-handle dd3-handle"
+		icon class="icon-th-list"
+	div class="dd3-content"
+		= link_to sub_menu.name, edit_menu_menu_item_path(sub_menu.menu, sub_menu)
+		= link_to 'Delete', [sub_menu.menu, sub_menu], :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger', :style => "float: right; top: -2px; position: relative"
+	-if sub_menu.number_of_children > 0
+		ol class="dd-list"
+			-for sub_menu_item in sub_menu.children
+				== render :partial => '/admin/menus/partials/sub_menu', :object => sub_menu_item

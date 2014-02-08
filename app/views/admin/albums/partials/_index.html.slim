@@ -1,0 +1,28 @@
+- title "#{album.class.name.pluralize.underscore.humanize}"
+
+legend #{album.class.name.pluralize.underscore.humanize}
+
+- if albums.size == 0
+
+	p Get started: #{link_to "And New #{album.class.name.underscore.humanize}", new_gallery_album_path(gallery), :class => 'btn btn-primary'}
+
+- else
+
+	p Your gallery currently contains <strong>#{albums.size}</strong> #{album.class.name.downcase}(s). #{link_to "And New #{album.class.name.underscore.humanize}", new_gallery_album_path(gallery), :class => 'btn btn-primary'}
+
+	table class="table table-striped"
+		thead
+			tr
+				th align="left" width="90%" == album.class.name.pluralize
+				th colspan="2" style="text-align: center" Actions
+		tbody
+			- for m in albums
+				- unless m.id.nil?
+					tr
+						td width="80%"
+							= link_to m[:name], edit_gallery_album_path(m.gallery, m)
+						td width="20%" style="text-align: right"
+							= link_to 'Edit', edit_gallery_album_path(m.gallery, m), :class => 'btn btn-mini'
+							= link_to 'Delete', gallery_album_path(m.gallery, m), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger'
+
+	div style="clear: both;"

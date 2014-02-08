@@ -1,0 +1,19 @@
+- title "Albums"
+
+- content_for :head do
+	== render :partial => "/shared/lightbox"
+
+div class="row-fluid"
+	div class="span6"
+		== render :partial => '/admin/albums/partials/form', :locals => {:title => "Edit Album"}
+
+	div class="span6"
+		== render :partial => '/admin/pictures/partials/form', :locals => {:title => "New Picture"}
+
+div class=""
+	div.span12
+		legend Current album contents:
+		ul class="thumbnails" style="text-align: center"
+			- for picture in @album.pictures do
+				- unless picture.new_record?
+					== render :partial => '/admin/pictures/partials/thumbnail', :locals => {:picture => picture, :parent_page => "album"}

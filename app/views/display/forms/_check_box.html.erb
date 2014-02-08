@@ -1,0 +1,17 @@
+<div class="field_check_box">
+	<% for option in check_box.field_options do %>
+	  <% checked = "" %>
+	  <% if !submitted_field.value.nil? %>
+	    <% for value in submitted_field.value.split("|") %>
+  	    <% if value == option.value %>
+  	      <% checked = "checked" %>
+  	      <% break %>
+  	    <% end %>
+  	  <% end %>
+  	<% end %>
+  	<% if check_box.default_value == option.value %>
+  		<% checked = "checked" %>
+  	<% end %>
+  	<input type="checkbox" name="form_submission[form_submission_fields_attributes][<%= i %>][value][]" value="<%= option.value %>" <%= checked %> /><%= option.value %>
+	<% end %>
+</div>

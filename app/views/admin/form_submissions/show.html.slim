@@ -1,0 +1,27 @@
+- title "Form Submission"
+
+h2 Form Submission
+
+table class="table table-bordered"
+	tr
+		th  width="20%" align="left" Submission ID:
+		td  width="80%" = @form_submission.id
+	tr
+		th align="left" Created At:
+		td = @form_submission.created_at
+
+legend Form Data
+
+table class="table table-condensed table-bordered"
+	thead
+		tr
+			th width="20%" align="left" Field
+			th width="80%" align="left" Value
+	tbody
+		- for form_submission_field in @form_submission.form_submission_fields
+			tr
+				td = form_submission_field.label
+				td = form_submission_field.value
+				
+div class="form-actions"
+	= link_to 'Back to Form Submissions', form_form_submissions_path(@form_submission.form), :class => 'btn'

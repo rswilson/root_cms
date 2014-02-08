@@ -1,0 +1,26 @@
+<legend>Preview</legend>
+
+<ul class="thumbnails" style="text-align: center">
+
+	<li class="span12" style="display:inline-block; vertical-align: top; float: none; padding: 0px; margin: 10px">
+		<div class="">
+			<a href="<%= picture.image.url(picture.album.lightbox_size) %>" rel="lightbox[<%= picture.album.title %>]" title="<%= picture.caption %>" class="">
+				<%= image_tag picture.image.url(picture.album.thumbnail_size) %>
+			</a>
+			<div class="caption">
+			<h4><%= picture.title %></h4>
+				<p><%= picture.caption %></p>
+				<p>
+					<%= link_to gallery_album_picture_rotate_path(picture.album.gallery, picture.album, picture, :degrees => -90), :class => "btn" do %>
+						<i class="icon-arrow-left"></i>
+						Rotate Left
+					<% end %>
+					<%= link_to gallery_album_picture_rotate_path(picture.album.gallery, picture.album, picture, :degrees => 90), :class => "btn" do %>
+						<i class="icon-arrow-right"></i>
+						Rotate Right
+					<% end %>
+				</p>
+			</div>
+		</div>
+	</li>
+</ul>

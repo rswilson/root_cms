@@ -1,0 +1,10 @@
+- title "Pages"
+
+= render :partial => '/admin/pages/partials/form', :locals => {:title => "Edit Page"}
+
+/ Load up all the pages for the Link chooser
+javascript:
+	var InternPagesSelectBox = new Array();
+- for page in Page.all
+	javascript:
+		InternPagesSelectBox.push( new Array( '#{page.name}', '#{page.url}' ));

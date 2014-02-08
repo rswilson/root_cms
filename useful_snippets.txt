@@ -1,0 +1,17 @@
+#{@field.type.to_s.underscore.pluralize}
+
+eval("edit_#{field_preview.type.underscore}_path(field_preview.form, field_preview)")
+
+<%
+#<%= link_to "Edit Menu", edit_menu_path(menu), :class => "admin_edit_link", :style => "position: absolute; right: 10px; display: none;" %>
+#<script>
+#	$(document).ready(function() {
+#		$(".rollover").hover(function() {
+#			logger("rolled over");
+#			$(this).children(".admin_edit_link").show();
+#		}, function() {
+#				$(this).children(".admin_edit_link").hide();
+#		});
+#	});
+#</script>
+%>

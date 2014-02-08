@@ -1,0 +1,2 @@
+<%= render :partial => '/display/fields/partials/label', :object => field %>
+<%= render :partial => '/display/fields/partials/'+field.type.to_s.underscore+'.html.erb', :object => field %>

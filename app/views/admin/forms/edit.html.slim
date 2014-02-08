@@ -1,0 +1,24 @@
+= content_for :js do
+	== javascript_include_tag "form"
+	
+- title "Edit Form"
+
+div id="form_details"
+	= render '/admin/forms/partials/form'
+
+- if @form.form_submissions.size > 0
+	div class="well"
+		legend Form Submissions
+		= link_to "View all submissions for this form", form_form_submissions_path(@form), :class => "btn btn-primary"
+
+div id="form_preview" class="well"
+	legend Form Preview:
+
+	= render :partial => '/admin/forms/partials/form_controls'
+
+	p = @form.description
+	
+	div#render_form_preview
+		= render :partial => '/admin/forms/partials/form_preview'
+		
+	p (*) indicates required field

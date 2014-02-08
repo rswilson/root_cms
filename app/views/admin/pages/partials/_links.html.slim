@@ -1,0 +1,36 @@
+div id="links" class="modal hide fade" title="Add Link"
+	div class="modal-header"
+		button type="button" class="close" data-dismiss="modal"
+			| ×
+		h3
+			| Insert Link
+	
+	form id="add_link"
+		div class="modal-body"
+			div id="errors"
+			table
+				tr
+					td = label_tag "Link Text"
+					td = text_field_tag :link_text
+				tr
+					td = label_tag "Link Type"
+					td
+						select id="link_type"
+							option value="url" Url
+							option value="page" Link To Page
+				tr class="types"  id="url_row"
+					td = label_tag "Link URL"
+					td = text_field_tag :link_url
+				tr class="types"  id="page_row"
+					td= label_tag :link_page
+					td
+						select id="link_page" name="link_page"
+							= for page in Page.all(:order => "name")
+								option value="#{page.id} %>" data-url="#{page.url}"
+									= page.admin_url
+		div class="modal-footer"
+			= submit_tag "Add Link", :class => "btn-primary btn"
+			a href="#" class="btn" data-dismiss="modal"
+				| Close
+
+/ See links.js for javascript

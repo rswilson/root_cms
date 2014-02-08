@@ -1,0 +1,12 @@
+<div class="field_label">
+		<label>
+			<% if !label.label.nil? && label.label != "" %>
+				<%= label.label %>
+			<% elsif !label.name.nil? && label.name != "" %>
+				<%= label.name %>
+			<% else %>
+				Label
+			<% end %>
+			<% if label.required %>*<% end %>
+		</label>
+</div>

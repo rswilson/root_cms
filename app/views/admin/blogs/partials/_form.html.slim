@@ -1,0 +1,21 @@
+== form_for @blog, :html => { :class => 'well' } do |f|
+	fieldset
+		legend #{controller.action_name.capitalize} Blog
+		= f.error_messages
+		
+		div.row-fluid
+			div.span6
+				= f.form_element f, :name, :text_field, @blog.errors, :style => "span12"
+		
+				= f.form_element f, :reverse_posts, :check_box, @blog.errors
+				= f.form_element f, :truncate_posts, :check_box, @blog.errors
+					
+			div.span6
+				= f.form_element f, :page_template_id, :collection_select, @blog.errors, {:dropdown => {:objects => PageTemplate.all(:order => "name"), :id => :id, :name => :name}, :style => "span12"}
+				
+				= f.form_element f, :approve_comments, :check_box, @blog.errors
+				= f.form_element f, :reverse_comments, :check_box, @blog.errors
+
+		div class="form-actions"
+			= f.submit "Save Blog", :class => 'btn btn-primary'			
+			= link_to 'Cancel', blogs_path, :class => 'btn'

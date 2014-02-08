@@ -1,0 +1,17 @@
+<%= div_for picture do %>
+	<h3 class="picture_title"><%= picture.title %>&nbsp;</h3>
+	
+	<%- if picture.link.nil? || picture.link == "" %>
+		
+	<a href="<%= picture.image.url(picture.album.lightbox_size) %>" rel="lightbox[<%= picture.album.title %>]" title='<%= picture.caption %>'>
+		<%= image_tag picture.image.url(picture.album.thumbnail_size), :class => "picture_image"%>
+	</a>
+	<p class="picture_caption"><%= picture.caption %> (<%= link_to "Full Size", picture.image.url %>)</p>
+	
+	<%- else %>
+		<a href="<%= picture.link %>">
+			<%= image_tag picture.image.url(picture.album.thumbnail_size), :class => "picture_image"%>
+		</a>
+		<p class="picture_caption"><%= link_to picture.caption, picture.link %></p>	
+	<%- end %>
+<% end %>

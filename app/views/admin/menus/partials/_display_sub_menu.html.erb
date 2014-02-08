@@ -1,0 +1,12 @@
+<% if !display_sub_menu.page.nil? && request.path.gsub(/\//,"") == display_sub_menu.url.gsub(/\//,"")  %>
+<li class="selected">
+<% else %>
+<li>
+<% end %>
+<a href="<%=h display_sub_menu.url %>"><%=h display_sub_menu.name %></a>
+<% for sub_menu_item in display_sub_menu.children %>
+	<ul>
+	<%= render :partial => "/admin/menus/partials/display_sub_menu", :locals => { :display_sub_menu => sub_menu_item } %>
+	</ul>
+<% end %>
+</li>

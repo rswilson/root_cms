@@ -1,0 +1,12 @@
+<label class="control-label">
+	<% if !label.label.nil? && label.label != "" %>
+		<%= label.label %>
+	<% elsif !label.name.nil? && label.name != "" %>
+		<%= label.name %>
+	<% else %>
+		Label
+	<% end %>
+	<% if label.required %>*<% end %>
+	<%= link_to "Edit", edit_form_field_path(label.form, label), :remote => :true, :class => "btn btn-primary btn-mini edit_field_link", :style => "margin-right: 0px"%>
+	<%= link_to 'Delete', form_field_path(label.form, label), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger', :remote => true %>
+</label>

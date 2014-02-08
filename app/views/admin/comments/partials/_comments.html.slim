@@ -1,0 +1,35 @@
+div id="comments" class="well"
+	p.pull-right style="margin-left: 5px"
+			= link_to "(add an additional comment)", new_blog_post_comment_path(post.blog, post)
+
+	- if post.comments.size > 0
+		p style="float: right"
+			| #{pluralize(post.comments.count, "comment")} 
+			- if post.blog.approve_comments && post.comments_awaiting_approval.count > 0
+				strong (#{post.comments_awaiting_approval.count} awaiting approval)
+
+	h3 Comments
+	
+	- if post.comments.size == 0
+		p
+			|Get started, make a 
+			= link_to "new comment", new_blog_post_comment_path(post.blog, post)
+
+	- else
+	
+
+					
+		legend Approved:
+
+		- if post.blog.reverse_comments
+			= render :partial => '/admin/comments/partials/comment', :collection => post.approved_comments.reverse, :locals => {:approved => true}
+		- else
+			= render :partial => '/admin/comments/partials/comment', :collection => post.approved_comments, :locals => {:approved => true}
+
+		- if post.blog.approve_comments
+	
+			legend Awaiting Approval:
+			- if post.blog.reverse_comments
+				= render :partial => '/admin/comments/partials/comment', :collection => post.comments_awaiting_approval.reverse, :locals => {:approved => false}
+			- else
+				= render :partial => '/admin/comments/partials/comment', :collection => post.comments_awaiting_approval, :locals => {:approved => false}

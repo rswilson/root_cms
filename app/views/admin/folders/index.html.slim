@@ -1,0 +1,22 @@
+= content_for :js do
+	== javascript_include_tag "folder"
+
+== render :partial => '/admin/partials/default_index', :locals => {:model => Folder.new, :models => @folders, :name => "name", :skip_list => true}
+
+menu id="nestable-menu"
+	button.btn type="button" data-action="expand-all"
+		|Expand Folders
+	button.btn type="button" data-action="collapse-all"
+		|Collapse Folders
+
+div class="dd" id="nestable"
+	ol class="dd-list"
+		- for folder in @root_folders
+			== render :partial => '/admin/folders/partials/folder', :locals => {:folder => folder}
+
+br
+p
+	small
+		| Drag folders to re-organise. Note: They will always be sorted alphabetically
+
+

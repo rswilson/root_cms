@@ -1,0 +1,11 @@
+li class="dd-item dd3-item" data-id="#{folder.id}"
+	div class="dd-handle dd3-handle"
+		icon.icon-folder-open
+	div class="dd-content dd3-content"
+		= link_to folder.name, edit_folder_path(folder, :referring_page => @referring_page)
+		= link_to 'Delete', folder, :method => :delete, :confirm => 'Are you sure? All pages below will be moved to the root folder', :class => 'btn btn-mini btn-danger', :style => "float: right; top: -2px; position: relative"
+
+	-if folder.has_children?
+		-for child_folder in folder.sub_folders
+			ol class="dd-list"
+				== render :partial => '/admin/folders/partials/folder', :locals => {:folder => child_folder}

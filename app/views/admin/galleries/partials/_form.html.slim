@@ -1,0 +1,14 @@
+== form_for @gallery, :html => { :class => 'well' } do |f|
+	fieldset
+		legend #{controller.action_name.capitalize} Gallery
+		= f.error_messages
+		
+		div.row-fluid
+			div.span6
+				= f.form_element f, :name, :text_field, @gallery.errors, :style => "span12"
+			div.span6								
+				= f.form_element f, :description, :text_area, @gallery.errors, {:style => 'input-xlarge span12'}
+
+		div class="form-actions"
+			= f.submit "Save Gallery", :class => 'btn btn-primary'
+			= link_to 'Cancel', galleries_path, :class => 'btn'

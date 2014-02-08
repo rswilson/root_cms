@@ -1,0 +1,16 @@
+span style="font-weight: bold" Album: 
+div id="album-dropdown" class="btn-group" style="display: none"
+	button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+		| Select Album: 
+		span class="caret"
+	ul class="dropdown-menu" role="menu"
+		- for album in @albums do
+			li
+				= link_to album.name, :controller => "uploader", :action => "album", :album_id => album.id, :remote => true
+				
+javascript:
+	$('#album-dropdown ul li a').click(function () {
+		console.log("toggling");
+		$('#album-dropdown button').text($(this).text());
+		$("#album-dropdown").removeClass('open');
+	});

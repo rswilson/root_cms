@@ -1,0 +1,18 @@
+legend Field Properties:
+
+= form_for [@field.form, @field.becomes(Field)], :remote => :true do |f|
+	= f.error_messages
+	
+	fieldset
+
+		div.row-fluid
+			div.span12
+				= f.form_element f, :name, :text_field, @field.becomes(Field).errors, :style => "span12"
+				= f.form_element f, :required, :check_box, @field.becomes(Field).errors, :label_text => "Required?"					
+				= render :partial => '/admin/fields/partials/default_value', :locals => {:f => f}
+							
+	div class="form-actions"
+		= f.submit "Save Field Options", :class => 'btn btn-primary'
+
+- if @field.has_field_options?
+	= render :partial => "/admin/field_options/partials/form"

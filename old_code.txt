@@ -1,0 +1,57 @@
+javascript
+	$(function(){
+		$('img.captify').captify({
+			// all of these options are... optional
+			// ---
+			// speed of the mouseover effect
+			speedOver: 'fast',
+			// speed of the mouseout effect
+			speedOut: 'normal',
+			// how long to delay the hiding of the caption after mouseout (ms)
+			hideDelay: 500,	
+			// 'fade', 'slide', 'always-on'
+			animation: 'slide',		
+			// text/html to be placed at the beginning of every caption
+			prefix: '',		
+			// opacity of the caption on mouse over
+			opacity: '0.7',					
+			// the name of the CSS class to apply to the caption box
+			className: 'caption-bottom',	
+			// position of the caption (top or bottom)
+			position: 'bottom',
+			// caption span % of the image
+			spanWidth: '100%'
+		});
+	});
+	
+	
+	javascript
+		function selectPicture(url) {
+			parent.window.opener.CKEDITOR.tools.callFunction(#{@funcNum}, url, '');
+			parent.window.close();
+
+
+
+			= div_for picture, :class => "edit_picture_thumbnail" do
+				table cellpadding="5" cellspacing="0" class="edit_picture_thumbnail_form"
+					tr
+						td align="center"
+							= image_tag picture.image.url(:small), :rel => "image_caption_#{picture.id}", :class => "captify", :align => "center"
+							div id="image_caption_#{picture.id}"
+								p Choose size:
+								a href="#" onclick="selectPicture('<%= picture.image.url(:small)%>')" Small
+								br
+								a href="#" onclick="selectPicture('<%= picture.image.url(:large)%>')" Large
+								br
+								a href="#" onclick="selectPicture('<%= picture.image.url(:original)%>')" Original
+					tr
+						td
+							= link_to "Edit", edit_gallery_album_picture_path(picture.album.gallery, picture.album, picture)
+							= link_to "Delete", gallery_album_picture_path(picture.album.gallery, picture.album,picture), :confirm => 'Are you sure?', :method => :delete, :class => "delete_button"
+							= link_to image_tag('rotate_left.png'), gallery_album_picture_rotate_path(picture.album.gallery, picture.album, picture), :degrees => -90
+							= link_to image_tag('rotate_right.png'), gallery_album_picture_rotate_path(picture.album.gallery, picture.album, picture), :degrees => 90
+
+			javascript
+				function selectPicture(url) {
+					parent.window.opener.CKEDITOR.tools.callFunction(#{@funcNum}, url, '');
+					parent.window.close();

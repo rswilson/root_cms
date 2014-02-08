@@ -1,0 +1,10 @@
+<div class="blog">
+	<div class="blog_title"><%= blog.name %></div>
+	<div class="blog_posts">
+		<% if blog.reverse_posts %>
+			<%= render :partial => '/display/blogs/post', :collection => blog.posts.reverse %>
+		<% else %>
+			<%= render :partial => '/display/blogs/post', :collection => blog.posts %>
+		<% end %>
+	</div>
+</div>

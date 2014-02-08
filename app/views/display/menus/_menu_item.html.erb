@@ -1,0 +1,22 @@
+<!-- Check to see if this is the start page -->
+<!-- <%= request.path.gsub(/\//,"") %> <%= URI.escape(request.path.gsub(/\//,"")) %> -->
+<!-- <%= menu_item.page.url.gsub(/\//,"") %> <%= URI.escape(menu_item.page.url.gsub(/\//,"")) %> -->
+<% if request.path.gsub(/\//,"") == "" && menu_item.page == @site.start_page %>
+<li class="<%=h menu_item.class_name %> selected">
+<!-- Check to see if this url matches a link url -->
+<% elsif !menu_item.page.nil? && request.path.gsub(/\//,"") == URI.escape(menu_item.page.url.gsub(/\//,""))  %>
+<li class="<%=h menu_item.class_name %> selected">
+<% elsif @page.is_child_of(menu_item.folder) == true %>
+<li class="<%=h menu_item.class_name %> selected">
+<% else %>
+<li class="<%=h menu_item.class_name %>">
+<% end %>
+<a href="<%=h menu_item.url %>"><%=h menu_item.name %></a>
+<% if menu_item.children && menu_item.children.count > 0 %>
+	<ul>
+	<% for sub_menu_item in menu_item.children %>
+		<%= render :partial => "/display/menus/menu_item", :locals => { :menu_item => sub_menu_item } %>
+	<% end %>
+	</ul>
+<% end %>
+</li>

@@ -1,0 +1,19 @@
+- title "#{@site.name} Administration"
+
+- if flash[:success] == "Logged in successfully."
+	div class="alert alert-info"
+		p 
+		| Welcome back 
+		strong #{@current_user.username}
+		|. You last logged in at #{session[:user_last_logged_in_at]}
+- if @comments_awaiting_approval.size > 0 || @forms_with_unviewed_submissions.size > 0
+	div class="alert alert-warning"
+		- if @comments_awaiting_approval.size > 0
+			p You have <strong>#{pluralize(@comments_awaiting_approval.size, "comment")}</strong> awaiting approval. #{link_to "View them", blogs_path}
+		- if @forms_with_unviewed_submissions.size > 0
+			p You have <strong>new form submissions to view</strong>
+			- @forms_with_unviewed_submissions.each do |form|
+				p <strong>#{form.name}</strong> has #{pluralize(form.form_submissions.size, "unviewed form submission")}
+
+div
+	== render :partial => '/admin/sites/partials/form', :locals => {:title => "Your site settings..."}

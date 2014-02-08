@@ -1,0 +1,14 @@
+= div_for post, :class => "well" do
+	h3.post_header
+		= link_to_unless_current h(post.title), edit_blog_post_path(post.blog, post)
+		= link_to 'Delete', blog_post_path(post.blog, post), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger', :style => "float: right; margin: 10px 0px 0px 0px"
+	div.post_info
+		p style="float: left"
+			em
+				|Last Updated: #{post.updated_at.strftime("%d/%m/%Y at %H:%M:%S")}
+		p style="float: right"
+			|#{pluralize(post.comments.count, "comment")} 
+			- if post.blog.approve_comments && post.comments_awaiting_approval.count > 0
+				strong (#{post.comments_awaiting_approval.count} awaiting approval)
+				
+	div style="clear: both"

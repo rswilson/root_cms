@@ -1,0 +1,21 @@
+div id="field_options"
+
+= form_for [@field_option.field.form, @field_option.field.becomes(Field), @field_option], :remote => :true do |f|
+	fieldset
+		legend Field Options
+	
+		= f.error_messages
+		
+		div.row-fluid
+			div.span6
+				= f.form_element f, :value, :text_field, @field_option.errors, :style => "span12", :label_text => "Option:"
+				= f.hidden_field :field_id
+				= f.submit "Add Option", :class => 'btn btn-primary'
+
+p
+	- if @field_option.field.field_options
+		- for option in @field_option.field.field_options do
+			ul
+				li
+					= option.value
+					= link_to "Delete" , form_field_field_option_path(option.field.form, option.field, option), :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger', :method => :delete, :style => "float: right", :remote => :true

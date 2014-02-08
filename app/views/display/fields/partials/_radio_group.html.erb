@@ -1,0 +1,5 @@
+<div class="field_radio_group">
+	<% for option in radio_group.field_options do %>
+	<input type="radio" name="radio_group" value="<%= option.value %>" <% if option.value == radio_group.default_value %>checked<% end %> /><%= option.value %>
+	<% end %>
+</div>

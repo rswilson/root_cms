@@ -1,0 +1,16 @@
+div id="links" class="modal hide fade" title="Add Link"
+	div class="modal-header"
+		button type="button" class="close" data-dismiss="modal"
+			| ×
+		h3
+			| Insert Link
+	
+	form id="add_link"
+		div class="modal-body"
+			= render :partial => '/admin/pages/partials/links'
+		div class="modal-footer"
+			= submit_tag "Add Link", :class => "btn-primary btn"
+			a href="#" class="btn" data-dismiss="modal"
+				| Close
+
+/ See links.js for javascript

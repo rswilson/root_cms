@@ -1,0 +1,14 @@
+<%= stylesheet_link_tag "admin", :media => "all" %>
+<%= javascript_include_tag "admin" %>
+
+<%= yield :js %>
+<%= yield :css %>
+
+<%= csrf_meta_tags %>
+<script>		
+	$(document).ajaxSend(function(e, xhr, options) {
+		var token = $("meta[name='csrf-token']").attr("content");
+		xhr.setRequestHeader("X-CSRF-Token", token);
+	});
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">

@@ -1,0 +1,32 @@
+<%= form_for @field do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :label %><br />
+    <%= f.text_field :label %>
+  </p>
+  <p>
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </p>
+  <p>
+    <%= f.label :position %><br />
+    <%= f.text_field :position %>
+  </p>
+  <p>
+    <%= f.label :default_value %><br />
+    <%= f.text_field :default_value %>
+  </p>
+  <p>
+    <%= f.label :number_of_selections %><br />
+    <%= f.text_field :number_of_selections %>
+  </p>
+  <p>
+    <%= f.label :required %><br />
+    <%= f.check_box :required %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

@@ -1,0 +1,4 @@
+$("#field_object_<%= @field.id %>").html('<%= escape_javascript (render :partial => "/admin/forms/partials/field", :object => @field) %>');
+$("#field_object_<%= @field.id %>").effect("highlight", {}, 3000);
+$("#field_options").html('<%= escape_javascript (render :partial => "/admin/fields/partials/field", :object => @field) %>');
+resize_form_controls();

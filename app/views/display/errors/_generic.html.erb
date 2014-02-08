@@ -1,0 +1,12 @@
+<div id="errors">
+	<% if generic.errors.any? %>
+		<div id="error_explanation">
+			<h2>Oops! Looks like you have <%= pluralize(generic.errors.count, "problem") %></h2>
+			<ul>
+			<% generic.errors.full_messages.each do |msg| %>	
+				<li><%= msg %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
+</div>

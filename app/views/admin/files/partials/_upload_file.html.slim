@@ -1,0 +1,25 @@
+= form_tag({ :controller => "files", :action => "upload" }, :multipart => true, :method => :put, :class => "well") do
+
+	fieldset
+		legend
+			|Upload new file?
+			
+		div.row-fluid
+			div.span4
+				div class="control-group"
+					= label_tag "data", "Choose File:", :class => 'control-label'
+					div class="controls"
+						= file_field_tag 'data', :class => "text_field span12"
+			div.span6
+				div class="control-group"
+					= label_tag "path", "Choose Location Folder:", :class => 'control-label'
+					div class="controls"
+						= select_tag "path", options_for_select(@root_directory.all_directories), :class => "span12"
+			div.span2
+				div class="control-group"
+					= label_tag "overwrite", "Overwrite existing?", :class => 'control-label'
+					div class="controls"
+						= check_box_tag 'overwrite'
+
+	div class="form-actions compact"				
+		= submit_tag "Upload File"

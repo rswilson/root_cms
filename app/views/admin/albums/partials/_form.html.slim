@@ -1,0 +1,20 @@
+== form_for [@gallery, @album], :html => { :class => 'well' } do |f|
+	fieldset
+		legend #{controller.action_name.capitalize} Album
+		= f.error_messages
+		
+		div.row-fluid
+			div.span6
+
+				= f.form_element f, :gallery_id, :collection_select, @album.errors, {:dropdown => {:objects => @galleries, :id => :id, :name => :name, :include_blank => false}, :style => "span12"}
+				= f.form_element f, :name, :text_field, @album.errors, :style => "span12"
+				= f.form_element f, :title, :text_field, @album.errors, :style => "span12"
+				= f.form_element f, :thumbnail_size, :array_select, @album.errors, {:dropdown => {:objects => Picture.new.valid_sizes}, :style => "span12"}
+				= f.form_element f, :lightbox_size, :array_select, @album.errors, {:dropdown => {:objects => Picture.new.valid_sizes}, :style => "span12"}
+
+			div.span6								
+				= f.form_element f, :description, :text_area, @album.errors, {:style => 'input-xlarge span12'}
+
+		div class="form-actions"
+			= f.submit "Save Album", :class => 'btn btn-primary'
+			= link_to 'Back to Gallery', edit_gallery_path(@gallery), :class => 'btn'

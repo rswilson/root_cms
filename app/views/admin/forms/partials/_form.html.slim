@@ -1,0 +1,20 @@
+= form_for @form, :html => { :class => 'well' } do |f|
+	= f.error_messages
+	
+	fieldset
+		legend
+			#{controller.action_name.capitalize} Form
+
+		div.row-fluid
+			div.span6
+				= f.form_element f, :name, :text_field, @form.errors, :style => "span12"
+				= f.form_element f, :submit_button, :text_field, @form.errors, :style => "span12"
+				= f.form_element f, :notification_address, :text_field, @form.errors, :style => "span12"
+				= f.form_element f, :send_notification, :check_box, @form.errors, :label_text => "Send Notification?"	
+			div.span6
+				= f.form_element f, :description, :text_area, @form.errors, :rows => 5, :style => "input-xlarge span12"
+				= f.form_element f, :submission_message, :text_area, @form.errors, :rows => 5, :style => "input-xlarge span12"
+							
+	div class="form-actions"
+		= f.submit "Save Form", :class => 'btn btn-primary'
+		= link_to 'Cancel', forms_path, :class => 'btn'

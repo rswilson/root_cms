@@ -1,0 +1,25 @@
+== form_for [@picture.album.gallery, @picture.album, @picture], :html => { :multipart => true, :class => 'well' } do |f|
+	fieldset
+		-if title.nil?
+			legend #{controller.action_name.capitalize} Picture
+		-else
+			legend = title
+		= f.error_messages
+		
+		div.row-fluid
+			div.span6
+				= f.form_element f, :title, :text_field, @picture.errors, :style => "span12"
+				= f.form_element f, :link, :text_field, @picture.errors, :style => "span12"
+			
+				div class="control-group"
+					= f.label :image, :class => 'control-label'
+					div class="controls"
+						= f.file_field :image, :class => 'file_field', :class => "span12"
+			
+			div.span6
+				= f.form_element f, :caption, :text_area, @picture.errors, {:style => 'input-xlarge span12'}
+
+		div class="form-actions"
+			= f.submit "Save Picture", :class => 'btn btn-primary'
+			- unless @picture.new_record?
+				= link_to 'Back to Album', edit_gallery_album_path(@picture.album.gallery, @picture.album), :class => 'btn'

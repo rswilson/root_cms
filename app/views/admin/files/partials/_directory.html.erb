@@ -1,0 +1,32 @@
+<li class="directory" id="directory_<%=h directory.to_s %>">
+	<a href="#" onclick="$('#directory_contents_<%=h directory.to_s %>').toggle(); set_dropdown_path('<%=h directory.name %>', 'path');" class="directory_link"><%=h directory.name %></a>
+	<%= link_to 'Delete', delete_folder_path(:path => "#{directory.path_without_root}"), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+</li>
+
+<li>
+	<%- if !defined? show -%>
+	<ul style="display: none" id="directory_contents_<%=h directory.to_s %>">
+	<%- else -%>
+	<ul id="directory_contents_<%=h directory.name %>">
+	<%- end -%>
+
+	<%- if directory.directories.size == 0 && directory.files.size == 0 %>
+
+		<li class="empty_directory">Directory is empty...</li>
+
+	<%- else %>
+
+		<%- for sub_directory in directory.directories -%>
+			<%= render :partial => '/admin/files/partials/directory', :locals => { :directory => sub_directory } %>
+		<%- end -%>
+		<%- for file in directory.files -%>
+			<li class="file_name">
+				<%= link_to file, edit_file_path(:path => "#{directory.path}/#{file}"), :class => "file_link" %>
+				<%= link_to 'Delete', destroy_file_path(:path => "#{directory.path}/#{file}"), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+			</li>
+		<%- end -%>
+
+	<%- end %>
+
+	</ul>
+</li>

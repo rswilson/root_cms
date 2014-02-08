@@ -1,0 +1,6 @@
+<ul class="rollover">
+	<% for menu_item in menu.root.to_a %>
+		<%= render :partial => "/display/menus/menu_item", :object => menu_item %>
+	<% end %>
+</ul>
+<div class="clear">&nbsp;</div>

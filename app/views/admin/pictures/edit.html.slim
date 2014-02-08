@@ -1,0 +1,11 @@
+- title "Pictures"
+
+- content_for :head do
+	== render :partial => '/shared/lightbox'
+
+div class="row-fluid"
+	div class="span6"
+		== render :partial => '/admin/pictures/partials/form', :locals => {:title => "Edit Picture"}
+
+	div class="span6 well"
+			== render :partial => '/admin/pictures/partials/preview', :locals => {:picture => @picture}

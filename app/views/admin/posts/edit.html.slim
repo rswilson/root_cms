@@ -1,0 +1,6 @@
+- title "Posts"
+
+/ = link_to "Back to Blog", edit_blog_path(@post.blog), :class => "back_link"
+
+== render :partial => '/admin/posts/partials/form', :locals => {:title => "Edit Post"}
+== render :partial => '/admin/comments/partials/comments', :locals => {:post => @post}

@@ -1,0 +1,8 @@
+Ooh exciting, looks like you've just had a form submitted:
+
+Form name: <%= @form_submission.form.name %>
+Form submitted at: <%= @form_submission.created_at %>
+
+<% for field in @form_submission.form_submission_fields do %>
+<%= field.name %>: <%= field.value %>
+<% end %>
